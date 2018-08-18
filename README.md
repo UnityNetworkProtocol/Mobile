@@ -9,6 +9,13 @@ An example app with all the UI components of NativeBase
 
 >Find the installation guide in `ReadMe` of appropriate branches
 
+## Developer Tricks
+
+###Enable Developer Menu from CLI
+Run the following command, when connecting to a physical device, to interact with Developer Menu
+`adb shell input keyevent 82`
+
+
 ## Demo
 
 iOS | Android

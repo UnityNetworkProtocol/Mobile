@@ -3,6 +3,17 @@ package com.nativebasekitchensink;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+// import com.tradle.react.UdpSocketsModule;
+// import com.peel.react.TcpSocketsModule;
+import com.bitgo.randombytes.RandomBytesPackage;
+// import com.peel.react.rnos.RNOSModule;
+import com.airbnb.android.react.maps.MapsPackage;
+
+// import com.oblador.keychain.KeychainPackage;
+// import io.invertase.firebase.RNFirebasePackage;
+
+import org.reactnative.camera.RNCameraPackage;
+
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
@@ -24,6 +35,14 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            // new UdpSocketsModule(),
+            // new TcpSocketsModule(),
+            new RandomBytesPackage(),
+            // new RNOSModule(),
+            new MapsPackage(),
+            // new KeychainPackage(),
+            // new RNFirebasePackage(),
+            new RNCameraPackage(),
             new VectorIconsPackage()
       );
     }

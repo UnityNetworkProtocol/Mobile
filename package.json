@@ -1,6 +1,6 @@
 {
-  "name": "NativebaseKitchenSink",
-  "version": "2.7.0",
+  "name": "eidenai",
+  "version": "0.0.1",
   "private": true,
   "devDependencies": {
     "babel-eslint": "7.2.3",
@@ -16,24 +16,83 @@
     "husky": "0.14.3",
     "jest": "23.3.0",
     "prettier": "1.5.3",
-    "react-test-renderer": "16.4.1"
+    "react-test-renderer": "16.4.1",
+    "reactotron-react-native": "^2.0.0",
+    "reactotron-redux": "^2.0.0",
+    "reactotron-redux-saga": "^2.0.0",
+    "rn-nodeify": "^10.0.0"
   },
   "scripts": {
     "start": "react-native start",
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "rnnodify": "rn-nodeify --install crypto --hack"
   },
   "jest": {
     "preset": "react-native"
   },
   "dependencies": {
+    "@tradle/react-native-http": "^2.0.1",
+    "assert": "^1.4.1",
+    "blob-util": "^2.0.2",
+    "browserify-zlib": "^0.1.4",
+    "buffer": "^4.9.1",
     "color": "1.0.3",
+    "console-browserify": "^1.1.0",
+    "constants-browserify": "^1.0.0",
+    "crypto": "^1.0.1",
+    "dns.js": "^1.0.1",
+    "domain-browser": "^1.2.0",
+    "ethers": "^3.0.26",
+    "events": "^1.1.1",
+    "https": "^1.0.0",
+    "https-browserify": "0.0.1",
+    "idx": "^2.4.0",
+    "ipfs-api": "^24.0.0",
     "lodash": "4.13.1",
     "moment": "2.13.0",
     "native-base": "2.7.0",
+    "os": "^0.1.1",
+    "path-browserify": "0.0.0",
+    "process": "^0.11.10",
+    "prop-types": "^15.6.2",
+    "querystring-es3": "^0.2.1",
     "react": "16.4.1",
     "react-native": "0.56.0",
-    "react-navigation": "1.5.0"
+    "react-native-camera": "^1.2.0",
+    "react-native-crypto": "^2.1.2",
+    "react-native-firebase": "^4.3.8",
+    "react-native-keychain": "^3.0.0",
+    "react-native-level-fs": "^3.0.1",
+    "react-native-maps": "^0.21.0",
+    "react-native-os": "^1.2.1",
+    "react-native-qrcode-scanner": "^1.0.1",
+    "react-native-randombytes": "^3.5.0",
+    "react-native-tcp": "^3.3.0",
+    "react-native-udp": "^2.3.1",
+    "react-navigation": "1.5.0",
+    "react-redux": "^5.0.7",
+    "readable-stream": "^1.0.33",
+    "recompose": "^0.28.2",
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0",
+    "reselect": "^3.0.1",
+    "rn-walletconnect-wallet": "^0.0.1-beta.18",
+    "stream": "^0.0.2",
+    "stream-browserify": "^1.0.0",
+    "timers-browserify": "^1.4.2",
+    "tty-browserify": "0.0.0",
+    "url": "^0.10.3",
+    "util": "^0.10.4",
+    "vm": "^0.1.0",
+    "vm-browserify": "0.0.4",
+    "walletconnect": "^0.0.1-beta.25"
+  },
+  "react-native": {
+    "crypto": "react-native-crypto"
+  },
+  "browser": {
+    "crypto": "react-native-crypto"
   }
 }
