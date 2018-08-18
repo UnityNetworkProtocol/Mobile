@@ -1,47 +1,51 @@
 import React, { Component } from "react";
-
 import {
   StyleSheet,
   Text,
-  TouchableOpacity,
-  Linking,
 } from 'react-native';
-// import { WalletConnector } from 'walletconnect';
-import RNWalletConnect from "rn-walletconnect-wallet"
-
+import RNWalletConnect from "rn-walletconnect-wallet";
 import QRCodeScanner from "react-native-qrcode-scanner";
 
+/* --- React Component --- */
 class ScanScreen extends Component {
   onSuccess = async (e) => {
     // console.error(e)
     // set session
     const data = JSON.parse(e.data);
     console.log(data);
-    const { sessionId, sharedKey } = data;
+    const { sessionId, sharedKey, dappName, domain } = data;
+    console.log(sessionId);
     const walletConnector = new RNWalletConnect(
       {
-        bridgeUrl: "https://bridge.walletconnect.org", 
+        bridgeUrl: domain, 
         sessionId: sessionId,
         sharedKey: sharedKey,
-        dappName: "Eidenai"
+        dappName: dappName
       }
     );
+
+    // setTimeout(() => {
+    //   this.qrCodeScanner.reactivate();
+    // }, 1000);
 
     /**
      *  Send session data
     */
-   try{
+   try {
+
+    console.log('sending session')
     walletConnector.sendSessionStatus({
-      fcmToken: '12354...3adc',
-      pushEndpoint: 'https://push.walletconnect.org/notification/new',  
+      pushEndpoint: 'https://walletconnect.balance.io/webhook/push-notify',  
       data: {
-        accounts: [
-          '0x0000000000000000000000000000000000000000'
-        ]
+        address:'0x80e3e96dbc68416be9d82dee3999f0f738a5252a',
+        personalData: {
+          name: "KamesCG"
+        }
       }
-    })
+    });
+
     // sending session data
-    await walletConnector.sendSessionStatus({
+    const status =  await walletConnector.sendSessionStatus({
       fcmToken: '1234', // TODO use real fcm token
       walletWebhook: 'https://bridge.walletconnect.org/notification/new',
       data: {
@@ -49,13 +53,15 @@ class ScanScreen extends Component {
       }
     });
 
+    console.log(status)
+
       // success alert
-      Alert.alert('Connected', 'Successfully connected with app');
-    } catch (e) {
-      console.log(e);
+      // Alert.alert('Connected', 'Successfully connected with app');
+    } catch (err) {
+      console.log(err);
 
         // success alert
-        Alert.alert('Failed', 'Connection with app failed. Please try again.');
+        // Alert.alert('Failed', 'Connection with app failed. Please try again.');
       }
     }
     
@@ -70,8 +76,7 @@ class ScanScreen extends Component {
 
     // Linking
     //   .openURL(e.data)
-    //   .catch(err => console.error('An error has occured', err));
-  }
+    //   .catch(err => console.error('An error has occured', err));  
 
   render() {
     return (

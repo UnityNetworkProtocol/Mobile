@@ -1,6 +1,6 @@
 /* ------------------------- External Dependencies -------------------------- */
 import idx from 'idx';
-import { put, takeEvery } from 'redux-saga/effects';
+import { all, put, takeEvery } from 'redux-saga/effects';
 import actions from './actions'
 import ethers from 'ethers'
 // import { EthersBlockFlowIn } from 'logic/interface/DataScaffold'
@@ -664,7 +664,7 @@ var isAddress = function (address) {
 
 
 export default function* ethersSaga() {
-  yield [
+  yield all([
     takeEvery(actions.WALLET_GENERATE_RANDOM.REQUEST, walletGenerateRandom),
     takeEvery(actions.WALLET_GENERATE_JSON.REQUEST, walletGenerateJson),
     takeEvery(actions.WALLET_GENERATE_MENOMONIC.REQUEST, walletGenerateMenomonic),
@@ -701,5 +701,5 @@ export default function* ethersSaga() {
 
     // ADDITIONAL 
     takeEvery(actions.TRANSACTION_BATCH_PROCESS.REQUEST, transactionsBatchProcess),
-  ];
+  ]);
 }

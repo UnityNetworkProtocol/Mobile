@@ -30,7 +30,7 @@ export default class TabOne extends Component {
           </Button>
         </Header>
         <View style={{padding: 10}} >
-          {demo.map(item=> <CardAttestation {...item} /> )}
+          {demo.map(item=> <CardAttestation key={item.hash} {...item} /> )}
         </View>
       </Content>
     );

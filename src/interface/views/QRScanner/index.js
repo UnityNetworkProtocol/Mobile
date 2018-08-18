@@ -6,8 +6,8 @@ import {
   TouchableOpacity
 } from 'react-native';
 import QRCodeScanner from "react-native-qrcode-scanner";
-// import { WalletConnector } from 'walletconnect';
 // import RNWalletConnect from "rn-walletconnect-wallet";
+// import { WalletConnector } from 'walletconnect';
 
 /* --- React Component --- */
 class ScanScreen extends Component {
@@ -17,14 +17,14 @@ class ScanScreen extends Component {
     const data = JSON.parse(e.data);
     console.log(data);
     const { sessionId, sharedKey } = data;
-    // const walletConnector = new RNWalletConnect(
-    //   {
-    //     bridgeUrl: "https://bridge.walletconnect.org", 
-    //     sessionId: sessionId,
-    //     sharedKey: sharedKey,
-    //     dappName: "Eidenai"
-    //   }
-    // )
+    const walletConnector = new RNWalletConnect(
+      {
+        bridgeUrl: "https://bridge.walletconnect.org", 
+        sessionId: sessionId,
+        sharedKey: sharedKey,
+        dappName: "Eidenai"
+      }
+    )
     // const walletConnector = new WalletConnector(
     //   "https://bridge.walletconnect.org",
     //   {

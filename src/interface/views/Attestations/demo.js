@@ -1,6 +1,7 @@
 export default [
   // Demo 1 : Identity Information
   {
+    hash: "0x4203",
     title: "Identity Information",
     anchor: {
       name: "Eidenai",
@@ -34,6 +35,7 @@ export default [
 
   // Demo 2 : Education Credential
   {
+    hash: "0x4233",
     title: "Credential",
     anchor: {
       name: "MIT",
