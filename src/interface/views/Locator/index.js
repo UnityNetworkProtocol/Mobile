@@ -1,3 +1,4 @@
+/* --- Global Dependencies ---*/
 import React, { Component } from "react";
 import {
   Container,
@@ -14,10 +15,14 @@ import {
   Body
 } from "native-base";
 
-
+/* --- Internal Dependencies ---*/
+import SearchStandard from "interface/components/SearchStandard";
 import LocatorMap from "interface/components/LocatorMap";
+
+/* --- Component Dependencies ---*/
 import styles from "./styles";
-console.log(LocatorMap)
+
+/*--- React Component --- */
 export default class Locator extends Component {
   render() {
     return (
@@ -36,7 +41,7 @@ export default class Locator extends Component {
           </Body>
           <Right />
         </Header>
-
+        <SearchStandard/>
         <Content>
           <LocatorMap/>
         </Content>

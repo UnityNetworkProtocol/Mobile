@@ -11,29 +11,19 @@ import {
   Body
 } from "native-base";
 
+/* --- Local Dependencies ---*/
+import HeaderStandard from "interface/components/HeaderStandard";
+
 /* --- Component Dependencies ---*/
 import styles from "./styles";
-import Tabs from "./Tabs";
+import AttestationTabs from "./Tabs";
 
 export default class Attestations extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <Header>
-          <Left>
-            <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")}>
-              <Icon name="ios-menu" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Attestations</Title>
-          </Body>
-          <Right />
-        </Header>
-
-        {/* --- Tabs --- */}
-        <Tabs/>
-
+        <HeaderStandard title="Identity" {...this.props}/>
+        <AttestationTabs/>
       </Container>
     );
   }

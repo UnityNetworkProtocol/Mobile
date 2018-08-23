@@ -1,0 +1,66 @@
+/* --- Global Dependencies ---*/
+import React, { Component } from "react";
+import { StyleSheet } from "react-native"
+import {
+  Header,
+  Title,
+  Button,
+  Left,
+  Right,
+  Body
+} from "native-base";
+import LinearGradient from "react-native-linear-gradient";
+
+import {
+  Flex,
+  Icon,
+  Text,
+  View
+} from "atomic";
+/* --- Component Dependencies ---*/
+export default class Settings extends Component {
+  render() {
+    return (
+      <View>
+        <LinearGradient 
+          start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+          colors={this.props.gradient || ["#6832a2", "#4e3df5"]}
+          style={styles.linearGradient}
+          >
+          <Flex>
+          <Left>
+            <Button transparent onPress={() => this.props.navigation.navigate("DrawerOpen")} >
+              <Icon style={{color: "#FFF"}} name="ios-menu" />
+            </Button>
+          </Left>
+          <Body>
+            <Title>{this.props.title}</Title>
+          </Body>
+          <Right>
+            <Icon  onPress={() => this.props.navigation.navigate("QRScanner")} style={{color:"#FFF"}} name="ios-qr-scanner-outline"/>
+          </Right>
+          </Flex>
+        </LinearGradient>
+      </View>
+    );
+  }
+}
+
+var styles = StyleSheet.create({
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    paddingVertical: 30,
+    width: "100%",
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    margin: 10,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+  },
+});
+

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Image, Dimensions } from "react-native";
+import { Image, Dimensions, Stylesheet } from "react-native";
 import {
   Container,
   Header,
@@ -22,7 +22,7 @@ const deviceWidth = Dimensions.get("window").width;
 const logo = require("assets/logo.png");
 const cardImage = require("assets/drawer-cover.png");
 
-class NHCardShowcase extends Component {
+export default class CardAttestation extends Component {
   render() {
     return (
           <Card style={styles.mb} key={this.props.meta.hash} >
@@ -86,6 +86,5 @@ class NHCardShowcase extends Component {
           </Card>
     );
   }
-}
+};
 
-export default NHCardShowcase;

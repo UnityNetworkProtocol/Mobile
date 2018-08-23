@@ -119,6 +119,8 @@ import Settings from "src/views/Settings/";
 import Transactions from "src/views/Transactions/";
 
 
+import SideBar from "src/components/sidebar";
+
 import Home from "screens/home/";
 import Anatomy from "screens/anatomy/";
 import Footer from "screens/footer/";
@@ -141,7 +143,6 @@ import NHPicker from "screens/picker/";
 import NHTab from "screens/tab/";
 import NHThumbnail from "screens/thumbnail/";
 import NHTypography from "screens/typography/";
-import SideBar from "screens/sidebar";
 import Segment from "screens/segment";
 import NHToast from "screens/toast/";
 import Actionsheet from "screens/actionsheet";

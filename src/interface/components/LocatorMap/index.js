@@ -1,22 +1,7 @@
 
 import React, { Component } from "react";
 import { AppRegistry, View, Dimensions } from "react-native";
-const { StyleSheet } = React;
 import MapView, {Marker, PROVIDER_GOOGLE } from 'react-native-maps'
-
-
-// const styles = StyleSheet.create({
-//  container: {
-//    ...StyleSheet.absoluteFillObject,
-//    height: 400,
-//    width: 400,
-//    justifyContent: 'flex-end',
-//    alignItems: 'center',
-//  },
-//  map: {
-//    ...StyleSheet.absoluteFillObject,
-//  },
-// });
 
 const MarkerPoints = [
   {
@@ -38,19 +23,19 @@ const MarkerPoints = [
     description: "Buy Ether"
   },
   {
-    hash: "0xc2321",
+    hash: "0xc2341",
     title: "Aroma",
     coordinate: {
-      latitude: 37.98825,
-      longitude: -122.4532,
+      latitude: 37.95825,
+      longitude: -122.5212,
     },
     description: "Buy Ether"
   },
 ];
 
+
 export default class LocatorMap extends Component {
  render() {
-   const { region } = this.props;
 
    return (
     <View style ={styles.container}>
@@ -87,5 +72,3 @@ const styles = {
   },
 };
 
-
-AppRegistry.registerComponent('MAP', () => MAP);

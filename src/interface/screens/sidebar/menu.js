@@ -1,21 +1,41 @@
 export default [
   {
-    name: "Activity",
+    name: "Accounts",
     route: "Activity",
-    icon: "swap",
+    icon: "ios-cash-outline",
     bg: "#C5F442"
   },
   {
     name: "Identity",
     route: "Attestations",
-    icon: "contact",
+    icon: "ios-contact-outline",
     bg: "#C5F442"
   },
   {
-    name: "Channels",
-    route: "Attestations",
-    icon: "code-working",
+    name: "Contacts",
+    route: "Contacts",
+    icon: "ios-contacts-outline",
     bg: "#C5F442"
+  },
+  {
+    name: "Ethereum",
+    route: "Attestations",
+    icon: "ios-apps-outline",
+    bg: "#C5F442",
+    children: [
+      {
+        name: "State Channels",
+        route: "StateChannels",
+        icon: "ios-analytics-outline",
+        bg: "#C5F442"
+      },
+      {
+        name: "Smart Contracts",
+        route: "SmartContracts",
+        icon: "ios-cube-outline",
+        bg: "#C5F442"
+      },
+    ]
   },
   // {
   //   name: "Transactions",
@@ -31,22 +51,40 @@ export default [
   // },
 
   {
-    name: "Locator",
+    name: "Store Locator",
     route: "Locator",
-    icon: "map",
+    icon: "ios-navigate-outline",
+    bg: "#C5F442"
+  },
+  {
+    name: "Smart Contracts",
+    route: "SmartContracts",
+    icon: "ios-cube-outline",
+    bg: "#C5F442"
+  },
+  {
+    name: "State Channels",
+    route: "StateChannels",
+    icon: "ios-analytics-outline",
     bg: "#C5F442"
   },
   
   {
     name: "Settings",
     route: "Settings",
-    icon: "md-hammer",
+    icon: "ios-clipboard-outline",
+    bg: "#C5F442"
+  },
+  {
+    name: "Guide",
+    route: "Guide",
+    icon: "ios-bulb-outline",
     bg: "#C5F442"
   },
   {
     name: "Wallet",
     route: "Wallet",
-    icon: "md-locate",
+    icon: "ios-card-outline",
     bg: "#C5F442"
   },
   // {
@@ -169,12 +207,12 @@ export default [
   //   icon: "radio-button-on",
   //   bg: "#6FEA90"
   // },
-  {
-    name: "SearchBar",
-    route: "NHSearchbar",
-    icon: "search",
-    bg: "#29783B"
-  },
+  // {
+  //   name: "SearchBar",
+  //   route: "NHSearchbar",
+  //   icon: "search",
+  //   bg: "#29783B"
+  // },
   // {
   //   name: "Segment",
   //   route: "Segment",
@@ -188,13 +226,13 @@ export default [
   //   icon: "navigate",
   //   bg: "#BE6F50"
   // },
-  {
-    name: "Tabs",
-    route: "NHTab",
-    icon: "home",
-    bg: "#AB6AED",
-    types: "3"
-  },
+  // {
+  //   name: "Tabs",
+  //   route: "NHTab",
+  //   icon: "home",
+  //   bg: "#AB6AED",
+  //   types: "3"
+  // },
   // {
   //   name: "Thumbnail",
   //   route: "NHThumbnail",

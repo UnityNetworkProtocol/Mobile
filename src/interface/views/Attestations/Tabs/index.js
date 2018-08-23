@@ -1,21 +1,17 @@
 import React, { Component } from "react";
 import {
   Container,
-  Header,
-  Title,
-  Button,
   Icon,
   Tabs,
   Tab,
   Text,
-  Right,
-  Left,
-  Body,
+
   TabHeading
 } from "native-base";
-import TabOne from "./tabOne";
-import TabTwo from "./tabTwo";
-import TabThree from "./tabThree";
+import AttestionsVerified from "./attestationsVerified";
+import AttestationsSelf from "./attestationsSelf";
+import AttestationsRequests from "./attestationsRequests";
+import AttestationsIncoming from "./attestationsIncoming";
 
 class ConfigTab extends Component {
   render() {
@@ -30,7 +26,7 @@ class ConfigTab extends Component {
               </TabHeading>
             }
           >
-            <TabOne />
+            <AttestionsVerified/>
           </Tab>
           <Tab
             heading={
@@ -40,7 +36,7 @@ class ConfigTab extends Component {
               </TabHeading>
             }
           >
-            <TabTwo />
+            <AttestationsSelf />
           </Tab>
           <Tab
             heading={
@@ -50,7 +46,7 @@ class ConfigTab extends Component {
               </TabHeading>
             }
           >
-            <TabThree />
+            <AttestationsRequests />
           </Tab>
           <Tab
             heading={
@@ -60,7 +56,7 @@ class ConfigTab extends Component {
               </TabHeading>
             }
           >
-            <TabThree />
+            <AttestationsIncoming />
           </Tab>
         </Tabs>
       </Container>

@@ -98,7 +98,7 @@ android {
     // buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.nativebasekitchensink"
+        applicationId "com.eidenai"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-svg')
     // compile project(':react-native-udp')
     // compile project(':react-native-tcp')
     implementation project(':react-native-randombytes')
@@ -144,6 +145,8 @@ dependencies {
     // compile project(':react-native-maps')
     // compile project(':react-native-keychain')
     // compile project(':react-native-firebase')
+    implementation project(':react-native-linear-gradient')
+    implementation project(':react-native-splash-screen')
     implementation (project(':react-native-camera')) {
        exclude group: "com.android.support", module: 'support-v4'
     }

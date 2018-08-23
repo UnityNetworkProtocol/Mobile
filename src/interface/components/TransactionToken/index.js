@@ -1,19 +1,8 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import {
-  Container,
-  Title,
-  Content,
   Button,
-  Icon,
-  Card,
-  CardItem,
   Text,
-  Span,
-  Thumbnail,
-  Left,
-  Middle,
-  Right,
 } from "native-base";
 import styles from "./styles";
 
