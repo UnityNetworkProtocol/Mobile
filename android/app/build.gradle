@@ -1,5 +1,5 @@
-apply plugin: "com.android.application"
 
+apply plugin: "com.android.application"
 import com.android.build.OutputFile
 
 /**
@@ -98,7 +98,7 @@ android {
     // buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.eidenai"
+        applicationId "com.unity"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -139,12 +139,39 @@ android {
 dependencies {
     compile project(':react-native-svg')
     // compile project(':react-native-udp')
+    
     // compile project(':react-native-tcp')
     implementation project(':react-native-randombytes')
     // compile project(':react-native-os')
     // compile project(':react-native-maps')
     // compile project(':react-native-keychain')
-    // compile project(':react-native-firebase')
+    // compile(project(':react-native-firebase')) {
+    //      transitive = false
+    //  }
+
+    // RNFirebase required dependencies
+    implementation project(':react-native-firebase')
+    implementation "com.google.android.gms:play-services-base:15.0.1"
+    implementation "com.google.firebase:firebase-core:16.0.1"
+    implementation "com.google.android.gms:play-services-base:15.0.1"
+
+    // RNFirebase optional dependencies
+    // implementation "com.google.firebase:firebase-ads:15.0.1"
+    // implementation "com.google.firebase:firebase-auth:16.0.2"
+    // implementation "com.google.firebase:firebase-config:16.0.0"
+    // implementation "com.google.firebase:firebase-crash:16.0.1"
+    // implementation "com.google.firebase:firebase-database:16.0.1"
+    // implementation "com.google.firebase:firebase-firestore:17.0.2"
+    // implementation "com.google.firebase:firebase-functions:16.0.1"
+    // implementation "com.google.firebase:firebase-invites:16.0.1"
+    // implementation "com.google.firebase:firebase-storage:16.0.1"
+    implementation "com.google.firebase:firebase-messaging:17.1.0"
+    // implementation "com.google.firebase:firebase-perf:16.0.0"
+
+
+
+    
+    implementation 'me.leolin:ShortcutBadger:1.1.21@aar' // <-- Add this line if you wish to use badge on Android
     implementation project(':react-native-linear-gradient')
     implementation project(':react-native-splash-screen')
     implementation (project(':react-native-camera')) {
@@ -167,3 +194,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+apply plugin: 'com.google.gms.google-services' 

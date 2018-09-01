@@ -1,7 +1,7 @@
 /* --- Global Dependencies ---*/
 import React, { Component } from "react";
-import { ImageBackground } from "react-native";
-import { Image, StyleSheet } from "react-native";
+import { withNavigation } from "react-navigation";
+import { Image, ImageBackground, StyleSheet } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import {
   Card,
@@ -23,7 +23,7 @@ import iconEth from "assets/iconEth.png";
 import iconEthOpacity10 from "assets/iconEthOpacity10.png";
 
 /* --- React Component ---*/
-export default class Settings extends Component {
+class AccountDetails extends Component {
   render() {
     return (
       <Card style={{color: "white"}} >
@@ -66,9 +66,14 @@ export default class Settings extends Component {
             <Text style={{color: "#FFF",fontSize: 12}} note>Tokens: {this.props.balanceTokens || 0} | ${this.props.balanceCurrency || 0}</Text>
           </Flex>
           <Flex direction="row" justify="flex-end" width={"45%"}>
-            <Button icon>
+            <Button icon
+              onPress={() => this.props.navigation.navigate("AccountOverview",
+            {
+              account: "0x43kf55ab17f"
+            })}
+              >
               <Image style={{ marginLeft:10, height:20, width: 20,}} source={iconEth}/>
-              <Text style={{color: "#FFF", fontSize: 14}}>Add Funds</Text>
+              <Text style={{color: "#FFF", fontSize: 14}}>View Account</Text>
             </Button>
           </Flex>
         </Flex>
@@ -90,6 +95,8 @@ export default class Settings extends Component {
     );
   }
 }
+
+export default withNavigation(AccountDetails);
 
 // Later on in your styles..
 var styles = StyleSheet.create({

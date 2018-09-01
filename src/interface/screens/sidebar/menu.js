@@ -160,13 +160,13 @@ export default [
   //   bg: "#EF6092",
   //   types: "2"
   // },
-  // {
-  //   name: "Form & Inputs",
-  //   route: "NHForm",
-  //   icon: "call",
-  //   bg: "#EFB406",
-  //   types: "12"
-  // },
+  {
+    name: "Form & Inputs",
+    route: "NHForm",
+    icon: "call",
+    bg: "#EFB406",
+    types: "12"
+  },
   // {
   //   name: "Icon",
   //   route: "NHIcon",

@@ -1,4 +1,4 @@
-package com.eidenai;
+package com.unity;
 
 import android.app.Application;
 import com.BV.LinearGradient.LinearGradientPackage; // Linear Gradients
@@ -6,11 +6,15 @@ import org.devio.rn.splashscreen.SplashScreenReactPackage; // Splash Screen
 import com.facebook.react.ReactApplication;
 // import com.tradle.react.UdpSocketsModule;
 // import com.peel.react.TcpSocketsModule;
-import com.bitgo.randombytes.RandomBytesPackage;
 // import com.peel.react.rnos.RNOSModule;
-import com.airbnb.android.react.maps.MapsPackage;
 // import com.oblador.keychain.KeychainPackage;
-// import io.invertase.firebase.RNFirebasePackage;
+import com.bitgo.randombytes.RandomBytesPackage;
+import com.airbnb.android.react.maps.MapsPackage;
+
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
+// import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
+
 import com.horcrux.svg.SvgPackage;
 import org.reactnative.camera.RNCameraPackage;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -34,6 +38,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new RNFirebasePackage(),
+            new RNFirebaseMessagingPackage(),
             // new UdpSocketsModule(),
             // new TcpSocketsModule(),
             new RandomBytesPackage(),
@@ -43,9 +49,9 @@ public class MainApplication extends Application implements ReactApplication {
             // new RNOSModule(),
             new MapsPackage(),
             // new KeychainPackage(),
-            // new RNFirebasePackage(),
             new RNCameraPackage(),
             new VectorIconsPackage()
+            
       );
     }
 

@@ -120,7 +120,13 @@ import Wallet from "views/Wallet/";
 import Settings from "views/Settings/";
 import Transactions from "views/Transactions/";
 import Locator from "views/Locator/";
+import Guide from "views/Guide/";
+
+// Components
 import SideBar from "components/Sidebar";
+// Containers
+import AccountOverview from "containers/AccountOverview";
+import TransactionOverview from "containers/TransactionOverview";
 
 import Anatomy from "screens/anatomy/";
 import Footer from "screens/footer/";
@@ -159,8 +165,13 @@ const Drawer = DrawerNavigator(
     Settings: { screen: Settings },
     Transactions: { screen: Transactions },
     Locator: { screen: Locator },
+    Guide: { screen: Guide },
     QRScanner: { screen: QRScanner },
     Wallet: { screen: Wallet },
+
+    // Containers
+    AccountOverview: { screen: AccountOverview},
+    TransactionOverview: { screen: TransactionOverview},
   
     Anatomy: { screen: Anatomy },
     Header: { screen: Header },

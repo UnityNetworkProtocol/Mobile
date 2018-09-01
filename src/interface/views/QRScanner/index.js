@@ -3,54 +3,38 @@ import React, { Component } from "react";
 import {
   StyleSheet,
   Text,
-  TouchableOpacity
-} from 'react-native';
+  TouchableOpacity,
+} from "react-native";
 import QRCodeScanner from "react-native-qrcode-scanner";
-// import RNWalletConnect from "rn-walletconnect-wallet";
-// import { WalletConnector } from 'walletconnect';
+import qrVerify from "./qrVerify";
 
 /* --- React Component --- */
 class ScanScreen extends Component {
   onSuccess(e) {
-    // console.error(e)
-    // set session
-    const data = JSON.parse(e.data);
-    console.log(data);
-    const { sessionId, sharedKey } = data;
-    const walletConnector = new RNWalletConnect(
-      {
-        bridgeUrl: "https://bridge.walletconnect.org", 
-        sessionId: sessionId,
-        sharedKey: sharedKey,
-        dappName: "Eidenai"
-      }
-    )
-    // const walletConnector = new WalletConnector(
-    //   "https://bridge.walletconnect.org",
-    //   {
-    //     sessionId,
-    //     sharedKey,
-    //     dappName: 'Walletconnect test'
-    //   }
-    // );
-
-    // Linking
-    //   .openURL(e.data)
-    //   .catch(err => console.error('An error has occured', err));
+    try {
+      qrVerify(e);
+      // setTimeout(() => {
+      //   this.qrCodeScanner.reactivate();
+      // }, 1000);
+    } catch (err) {
+      setTimeout(() => {
+        this.qrCodeScanner.reactivate();
+      }, 1000);
+    }
   }
 
   render() {
     return (
-      <QRCodeScanner
-        onRead={this.onSuccess.bind(this)}
-        topContent={
-          <Text style={styles.centerText}>
-            Scan QR Code
-          </Text>
+        <QRCodeScanner
+          onRead={this.onSuccess.bind(this)}
+          topContent={
+            <Text style={styles.centerText}>
+              Scan QR Code
+            </Text>
         }
         bottomContent={
           <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>To Start Ethereum Transaction</Text>
+            <Text style={styles.buttonText}>Start Ethereum Transaction</Text>
           </TouchableOpacity>
         }
       />

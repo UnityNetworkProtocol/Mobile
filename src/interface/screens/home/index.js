@@ -16,7 +16,7 @@ export default class Home extends Component {
         <ImageBackground source={bgUniverse} style={styles.imageContainer}>
           <View style={styles.logoContainer}>
             {/* <ImageBackground source={launchscreenLogo} style={styles.logo} /> */}
-            <H3 style={styles.textLogo}>eidenai</H3>
+            <H3 style={styles.textLogo}>unity</H3>
           </View>
           <View
             style={{

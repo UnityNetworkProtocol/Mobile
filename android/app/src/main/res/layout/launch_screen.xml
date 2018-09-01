@@ -7,16 +7,25 @@
     android:background="@drawable/launch_screen">
     
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="220dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="200dp"
         android:src="@mipmap/ic_launcher"
         android:layout_gravity="center"
     />
     <ImageView
         android:layout_width="130dp"
-        android:layout_height="130dp"
-        android:src="@mipmap/tagline"
+        android:layout_height="70dp"
+        android:src="@mipmap/logo"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center"
     />
+    <!--
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="240dp"
+        android:src="@mipmap/tagline"
+        android:layout_gravity="center"
+    /> -->
 </LinearLayout>

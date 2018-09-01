@@ -21,7 +21,7 @@ if (global.__DEV__) {
   let createStore = reduxCreateStore;
   let sagaMiddlewarePlugins;
   Reactotron
-    .configure({ name: "Eidenai" })
+    .configure({ name: "Unity" })
     .useReactNative()
     .use(sagaPlugin())
     .use(reactotronRedux())

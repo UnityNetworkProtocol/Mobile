@@ -4,7 +4,7 @@ export default [
     hash: "0x4203",
     title: "Identity Information",
     anchor: {
-      name: "Eidenai",
+      name: "Unity",
       signature: "0xKAM35"
     },
     claim: {

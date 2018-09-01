@@ -1,4 +1,4 @@
-package com.eidenai;
+package com.unity;
 import com.facebook.react.ReactActivity;
 import android.os.Bundle; // SplashScreen
 import org.devio.rn.splashscreen.SplashScreen; // SplashScreen
@@ -14,6 +14,6 @@ public class MainActivity extends ReactActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "Eidenai";
+        return "Unity";
     }
 }

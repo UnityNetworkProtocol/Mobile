@@ -3,16 +3,9 @@ import React, { Component } from "react";
 import { View } from "react-native";
 import {
   Content,
-  Header,
-  Button,
-  Icon,
-  Text,
-  Item,
-  Input,
 } from "native-base";
 
 /* --- Local Dependencies ---*/
-import TransactionToken from "interface/components/TransactionToken";
 import AccountDetails from "interface/components/AccountDetails";
 import LogoGitcoin from "assets/logoGitcoin.jpg";
 import logoBountiesNetwork from "assets/logoBountiesNetwork.jpg";
@@ -26,7 +19,6 @@ import blockieGreen from "assets/blockieGreen.png";
 import blockieYellow from "assets/blockieYellow.png";
 
 // Background
-import bgUniverse from "src/assets/images/bgUniverse.jpg";
 const Gradients = {
   aquasplash: ["#13547a","#80d0c7"], // Bluish
   ladylips: ["#ff9a9e", "#fecfef"], // Pinkish
@@ -34,19 +26,18 @@ const Gradients = {
   plumplate: ["#667eea", "#764ba2"],
   plumbrass: ["#9d5f8e", "#5f2952"], // Augur Gradient
   wiretap: [ "#8a2387", "#e94057", "#f27121"] // PuplrOrangy
-}
+};
 
-/* --- Component Dependencies ---*/
-import DemoTransactions from '../demoTransactions'
+/* --- React Component ---*/
 export default class TabOne extends Component {
   render() {
     return (
       <Content>
         <View style={{padding: 10}} >
-          <AccountDetails 
-            category="Bounties"
+          <AccountDetails
+            category="Primary"
             blockie={blockiePurple}
-            bg={bgUniverse}
+            // bg={bgUniverse}
             interactions={[
               {
                 address: "0xgit",
@@ -65,13 +56,13 @@ export default class TabOne extends Component {
             />
           <AccountDetails
             blockie={blockieGreen}
+            category="Secondary"
             interactions={[
               {
                 address: "0xgit",
                 logo: LogoGovernX
               },
             ]}
-            category="Governance"
             balanceEth={1.72}
             balanceTokens={4}
             transactionsCount={10}
@@ -79,7 +70,7 @@ export default class TabOne extends Component {
             gradient={Gradients.aquasplash}
           />
           <AccountDetails
-            category="Predictions"
+            category="Tertiary"
             blockie={blockieYellow}
             interactions={[
               {
@@ -95,9 +86,8 @@ export default class TabOne extends Component {
             balanceTokens={154}
             transactionsCount={420}
             balanceCurrency={2201}
-            gradient={Gradients.plumbrass}
+            gradient={Gradients.kashmir}
           />
-          {/* {DemoTransactions.map((item, index)=><TransactionToken key={index} {...item} />)} */}
         </View>
       </Content>
     );

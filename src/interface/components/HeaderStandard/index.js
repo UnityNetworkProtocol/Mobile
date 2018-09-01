@@ -1,6 +1,7 @@
 /* --- Global Dependencies ---*/
 import React, { Component } from "react";
-import { StyleSheet } from "react-native"
+import { withNavigation } from "react-navigation";
+import { StyleSheet } from "react-native";
 import {
   Header,
   Title,
@@ -17,12 +18,13 @@ import {
   Text,
   View
 } from "atomic";
+import HeaderFab from "interface/components/HeaderFab";
 /* --- Component Dependencies ---*/
-export default class Settings extends Component {
+class HeaderStandard extends Component {
   render() {
     return (
-      <View>
-        <LinearGradient 
+      <View style={{zIndex: 1000, position: "relative", overflow: "visible"}} >
+        <LinearGradient
           start={{x: 0, y: 0}} end={{x: 1, y: 0}}
           colors={this.props.gradient || ["#6832a2", "#4e3df5"]}
           style={styles.linearGradient}
@@ -37,6 +39,7 @@ export default class Settings extends Component {
             <Title>{this.props.title}</Title>
           </Body>
           <Right>
+            {/* <HeaderFab/> */}
             <Icon  onPress={() => this.props.navigation.navigate("QRScanner")} style={{color:"#FFF"}} name="ios-qr-scanner-outline"/>
           </Right>
           </Flex>
@@ -46,6 +49,7 @@ export default class Settings extends Component {
   }
 }
 
+export default withNavigation(HeaderStandard);
 var styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
@@ -53,6 +57,8 @@ var styles = StyleSheet.create({
     paddingRight: 15,
     paddingVertical: 30,
     width: "100%",
+    overflow: "visible",
+    zIndex: 1000
   },
   buttonText: {
     fontSize: 18,

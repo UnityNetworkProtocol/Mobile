@@ -5,17 +5,17 @@ import {
   Tabs,
   Tab,
   Text,
-
+  View,
   TabHeading
 } from "native-base";
 import AccountBalance from "./accountBalance";
 import AccountInteractions from "./accountInteractions";
 import AccountTransactions from "./accountTransactions";
-
+import HeaderFab from "interface/components/HeaderFab";
 class ConfigTab extends Component {
   render() {
     return (
-      <Container>
+      <Container style={{zIndex: 100, position: "relative"}} >
         <Tabs style={{ elevation: 4 }} tabBarPosition="bottom">
           <Tab
             heading={

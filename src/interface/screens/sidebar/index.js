@@ -80,7 +80,7 @@ class SideBar extends Component {
         >
           <ImageBackground source={bgUniverse} style={styles.imageContainer}>
             <View>
-              <H3 style={styles.textLogo}>eidenai</H3>
+              <H3 style={styles.textLogo}>unity</H3>
               <Text style={{fontSize: 12, color: "#D8D8D8", textAlign:"center"}}>
                 Universal Ethereum Wallet
               </Text>

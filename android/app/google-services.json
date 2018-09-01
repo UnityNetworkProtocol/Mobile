@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "535684857712",
+    "firebase_url": "https://unity-ethereum.firebaseio.com",
+    "project_id": "unity-ethereum",
+    "storage_bucket": "unity-ethereum.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:535684857712:android:537ef253b2853a94",
+        "android_client_info": {
+          "package_name": "unity.ethereum"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "535684857712-nf8vfkd3m72ftt05i0pk6g3e4l10sbpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd6WlMI8ncYxmVxg9zO8iGLBzUZGkxNlE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

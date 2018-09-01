@@ -25,13 +25,6 @@ export default [
         icon: "ios-git-compare",
         bg: "#C5F442"
       },
-      {
-        keys: "permissions",
-        name: "Permissions",
-        route: "Permissions",
-        icon: "ios-contacts-outline",
-        bg: "#C5F442"
-      },
     ]
   },
   {
@@ -230,13 +223,13 @@ export default [
   //   bg: "#EF6092",
   //   types: "2"
   // },
-  // {
-  //   name: "Form & Inputs",
-  //   route: "NHForm",
-  //   icon: "call",
-  //   bg: "#EFB406",
-  //   types: "12"
-  // },
+  {
+    name: "Form & Inputs",
+    route: "NHForm",
+    icon: "call",
+    bg: "#EFB406",
+    types: "12"
+  },
   // {
   //   name: "Icon",
   //   route: "NHIcon",

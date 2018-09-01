@@ -151,7 +151,7 @@ class SideBar extends Component {
         >
           <ImageBackground source={bgUniverse} style={styles.imageContainer}>
             <View>
-              <H3 style={styles.textLogo}>TITAN</H3>
+              <H3 style={styles.textLogo}>UNITY</H3>
               <Text style={{fontSize: 12, color: "#FFF", textAlign:"center"}}>
                 Universal Wallet
               </Text>
