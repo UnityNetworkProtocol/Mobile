@@ -5,7 +5,7 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import QRCodeScanner from "react-native-qrcode-scanner";
+// import QRCodeScanner from "react-native-qrcode-scanner";
 import qrVerify from "./qrVerify";
 
 /* --- React Component --- */

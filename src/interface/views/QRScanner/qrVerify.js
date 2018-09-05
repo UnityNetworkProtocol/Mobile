@@ -1,5 +1,5 @@
-import RNWalletConnect from "rn-walletconnect-wallet";
-import { WalletConnector } from 'walletconnect';
+// import RNWalletConnect from "rn-walletconnect-wallet";
+// import { WalletConnector } from 'walletconnect';
 import parseJson from "parse-json";
 import isJson from "is-json";
 import {
@@ -14,24 +14,19 @@ export default (e) => {
     const is = isJson(e.data);
     switch (is) {
       case true:
-        console.log("QR Code Object");
+        console.log("QRCode: Object");
         const data = parseJson(e.data);
+        console.log(data)
         const parsed = qrObjectParse(data);
         isWalletConnect(parsed);
         break;
       case false:
-          console.log("QR Code String");
-          isValidUrl(data);
+        console.log("QRCode: String");
+        console.log(e)
+        isValidUrl(data);
         break;
-      case "array":
-
-        break;
-
-      case "undefined":
-
-          break;
-    
       default:
+        console.log("QRCode: Error");
         break;
     }
 
@@ -73,26 +68,26 @@ const qrObjectParse = (o) => {
 
 const isWalletConnect = (o) => {
   const { sessionId, sharedKey } = o;
-  console.log(o);
-  const walletConnector = new RNWalletConnect(
-    {
-      bridgeUrl: "https://bridge.walletconnect.org", 
-      sessionId: sessionId,
-      sharedKey: sharedKey,
-      dappName: "Unity"
-    }
-  );
+  // console.log(o);
+  // const walletConnector = new RNWalletConnect(
+  //   {
+  //     bridgeUrl: "https://bridge.walletconnect.org", 
+  //     sessionId: sessionId,
+  //     sharedKey: sharedKey,
+  //     dappName: "Unity"
+  //   }
+  // );
 
   try {
-    walletConnector.sendSessionStatus({
-      fcmToken: false,
-      pushEndpoint: "https://push.walletconnect.org/notification/new",
-      data: {
-        accounts: [
-          '0x0000000000000000000000000000000000000000'
-        ]
-      }
-    })
+    // walletConnector.sendSessionStatus({
+    //   fcmToken: true,
+    //   pushEndpoint: 'https://us-central1-walletconnect-app.cloudfunctions.net/push',
+    //   data: {
+    //     accounts: [
+    //       '0x0000000000000000000000000000000000000000'
+    //     ]
+    //   }
+    // })
   } catch(err) {
     console.log(err)
   }

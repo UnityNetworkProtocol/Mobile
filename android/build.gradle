@@ -51,11 +51,13 @@ subprojects {
 
 
 ext {
-    buildToolsVersion = "26.0.3"
+    buildToolsVersion = "27.0.3"
     minSdkVersion = 16
-    compileSdkVersion = 26
-    targetSdkVersion = 26
+    compileSdkVersion = 27
+    targetSdkVersion = 27
     supportLibVersion = "26.1.0"
     googlePlayServicesVersion = "15.0.1"
     androidMapsUtilsVersion = "0.5+"
 }
+
+apply plugin: 'com.google.gms.google-services'

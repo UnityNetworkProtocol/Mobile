@@ -1,4 +1,4 @@
-import RNWalletConnect from 'rn-walletconnect-wallet';
+// import RNWalletConnect from 'rn-walletconnect-wallet';
 import { loadAddress } from './wallet';
 import { getFCMToken } from './fcm';
 
@@ -10,13 +10,13 @@ export const walletConnectInstance = {
 
 export const walletConnectInit = async (bridgeUrl, sessionId, sharedKey, dappName) => {
   const fcmToken = await getFCMToken();
-  const walletConnector = new RNWalletConnect({
-    sessionId,
-    sharedKey,
-    dappName,
-    bridgeUrl,
-  });
-  walletConnectInstance.walletConnector = walletConnector;
+  // const walletConnector = new RNWalletConnect({
+  //   sessionId,
+  //   sharedKey,
+  //   dappName,
+  //   bridgeUrl,
+  // });
+  // walletConnectInstance.walletConnector = walletConnector;
   walletConnectInstance.fcmToken = fcmToken;
 };
 

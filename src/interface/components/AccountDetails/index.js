@@ -26,7 +26,7 @@ import iconEthOpacity10 from "assets/iconEthOpacity10.png";
 class AccountDetails extends Component {
   render() {
     return (
-      <Card style={{color: "white"}} >
+      <Card style={{borderRadius: 10, color: "white"}} >
         <LinearGradient
           start={{x: 0, y: 0}} end={{x: 1, y: 0}}
           colors={this.props.gradient || ["#2bace8", "#06559b"]}
@@ -102,7 +102,7 @@ export default withNavigation(AccountDetails);
 var styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
-    borderRadius: 5
+    borderRadius: 10
   },
   buttonText: {
     fontSize: 18,
@@ -114,7 +114,7 @@ var styles = StyleSheet.create({
   },
   imageContainer: {
     alignItems: "center",
-    borderRadius: 5,
+    borderRadius: 10,
     paddingLeft: 15,
     paddingRight: 15,
     paddingVertical: 20,

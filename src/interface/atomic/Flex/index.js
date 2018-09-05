@@ -8,8 +8,9 @@ const Flex = styled(View)`
   align-items:${props => idx(props, _=>_.align) || "flex-start"};
   display: flex;
   flex-direction:${props => idx(props, _=>_.direction) || "row"};
+  ${props => idx(props, _=>_.height) ? "height: " + idx(props, _=>_.height) : null};
   justify-content:${props => idx(props, _=>_.justify) || "flex-start"};
-  width: ${props => idx(props, _=>_.width) || "100%"};
+  ${props => idx(props, _=>_.width) ? "width: " + idx(props, _=>_.width) : null};
 `;
 
 /* --- React Component ---*/

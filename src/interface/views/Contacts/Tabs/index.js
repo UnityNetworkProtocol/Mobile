@@ -8,7 +8,7 @@ import {
 
   TabHeading
 } from "native-base";
-import AccountBalance from "./accountBalance";
+import ContactList from "./accountBalance";
 import AccountInteractions from "./accountInteractions";
 import AccountTransactions from "./accountTransactions";
 
@@ -25,7 +25,7 @@ class ConfigTab extends Component {
               </TabHeading>
             }
           >
-            <AccountBalance />
+            <ContactList />
           </Tab>
           <Tab
             heading={

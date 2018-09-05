@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-firebase')
     compile project(':react-native-svg')
     // compile project(':react-native-udp')
     
@@ -194,4 +195,4 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
-apply plugin: 'com.google.gms.google-services' 
+// apply plugin: 'com.google.gms.google-services' 

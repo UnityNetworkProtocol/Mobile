@@ -113,15 +113,18 @@ import QRScanner from "views/QRScanner/";
  * Views
  * @desc A list of primary views for the Mobile Application
  */
-import Home from "views/Home/";
 import Activity from "views/Activity/";
-import Attestations from "views/Attestations/";
-import Wallet from "views/Wallet/";
+import Accounts from "views/Accounts/";
+import Contacts from "views/Contacts/";
+import ContactPerson from "views/ContactPerson/";
+import IdentityAttestations from "views/IdentityAttestations/";
+import IdentityPermissions from "views/IdentityPermissions/";
 import Settings from "views/Settings/";
 import Transactions from "views/Transactions/";
 import Locator from "views/Locator/";
+import Wallet from "views/Wallet/";
 import Guide from "views/Guide/";
-
+import Demo from "views/Demo/";
 // Components
 import SideBar from "components/Sidebar";
 // Containers
@@ -158,21 +161,26 @@ import NHDatePicker from "screens/datepicker/";
 
 const Drawer = DrawerNavigator(
   {
-    // Primary Mobile Application Views
-    Home: { screen: Home },
+    // Primary Screens
     Activity: { screen: Activity },
-    Attestations: { screen: Attestations },
+    Accounts: { screen: Accounts },
+    Contacts: { screen: Contacts },
+    ContactPerson: { screen: ContactPerson },
+    IdentityAttestations: { screen: IdentityAttestations },
+    IdentityPermissions: { screen: IdentityPermissions },
+    Guide: { screen: Guide },
+    Locator: { screen: Locator },
     Settings: { screen: Settings },
     Transactions: { screen: Transactions },
-    Locator: { screen: Locator },
-    Guide: { screen: Guide },
     QRScanner: { screen: QRScanner },
     Wallet: { screen: Wallet },
+    
+    // Demo
+    Demo: { screen: Demo },
 
     // Containers
     AccountOverview: { screen: AccountOverview},
     TransactionOverview: { screen: TransactionOverview},
-  
     Anatomy: { screen: Anatomy },
     Header: { screen: Header },
     Footer: { screen: Footer },
@@ -201,7 +209,7 @@ const Drawer = DrawerNavigator(
     NHDatePicker: { screen: NHDatePicker }
   },
   {
-    initialRouteName: "Activity",
+    initialRouteName: "Accounts",
     contentOptions: {
       activeTintColor: "#e91e63"
     },
@@ -344,3 +352,4 @@ export default () =>
   <Root>
     <AppNavigator />
   </Root>;
+
