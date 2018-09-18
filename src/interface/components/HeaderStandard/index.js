@@ -1,5 +1,6 @@
 /* --- Global Dependencies ---*/
 import React, { Component } from "react";
+import styled from "styled-components";
 import { withNavigation } from "react-navigation";
 import { StyleSheet } from "react-native";
 import {

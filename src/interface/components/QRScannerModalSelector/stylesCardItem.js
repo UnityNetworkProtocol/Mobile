@@ -3,6 +3,9 @@ const { Dimensions, Platform } = React;
 const deviceHeight = Dimensions.get("window").height;
 
 export default {
+  card: {
+    padding: 10
+  },
   imageContainer: {
     flex: 1,
     width: null,
@@ -16,34 +19,34 @@ export default {
     paddingHorizontal: 20,
   },
   avatar: {
-    borderColor: "#FFF",
+    borderColor: "#484848",
     borderRadius: 9999,
     borderWidth: 2,
-    height: 65,
-    width: 65,
+    height: 55,
+    width: 55,
   },
   textName: {
-    color: "#FFF",
+    color: "#484848",
     fontSize: 18,
     fontWeight: "100",
   },
   textAccount: {
-    color: "#FFF",
+    color: "#484848",
     fontSize: 13,
     fontWeight: "300",
   },
   textBalance: {
-    color: "#FFF",
+    color: "#484848",
     fontSize: 14,
     fontWeight: "300",
     lineHeight: 14,
   },
   viewEth: {
     backgroundColor: "#2bace8",
-    borderColor: "#FFF",
+    borderColor: "#484848",
     borderRadius: 9999,
     borderWidth: 2,
-    color: "#FFF",
+    color: "#484848",
     height: 30,
     width: 30,
     position: "absolute",

@@ -5,6 +5,29 @@ const deviceHeight = Dimensions.get("window").height;
 const deviceWidth = Dimensions.get("window").width;
 
 export default {
+  avatar: {
+    borderColor: "#FFF",
+    borderRadius: 9999,
+    borderWidth: 2,
+    height: 45,
+    width: 45,
+  },
+  textName: {
+    color: "#FFF",
+    fontSize: 18,
+    fontWeight: "100",
+  },
+  textAccount: {
+    color: "#FFF",
+    fontSize: 13,
+    fontWeight: "300",
+  },
+  textBalance: {
+    color: "#FFF",
+    fontSize: 14,
+    fontWeight: "300",
+    lineHeight: 14,
+  },
   drawerCover: {
     alignSelf: "stretch",
     height: deviceHeight / 3.5,
@@ -34,7 +57,8 @@ export default {
 
   imageContainer: {
     alignItems: "center",
-    paddingTop: 10,
+    paddingVertical: 20,
+    paddingHorizontal: 20,
   },
   textLogo: {
     color: "#D8D8D8",

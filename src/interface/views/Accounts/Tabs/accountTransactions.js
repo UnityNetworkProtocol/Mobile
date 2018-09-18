@@ -4,10 +4,10 @@ import { View } from "react-native";
 import {
   Content,
 } from "native-base";
-import TransactionToken from "interface/components/TransactionToken";
 
 /* --- Component Dependencies ---*/
-import DemoTransactions from '../demoTransactions'
+import TransactionToken from "interface/components/TransactionToken";
+import DemoTransactions from "../demoTransactions";
 export default class TabOne extends Component {
   render() {
     return (

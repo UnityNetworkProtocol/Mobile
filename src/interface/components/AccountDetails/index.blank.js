@@ -29,7 +29,7 @@ class AccountDetails extends Component {
       <Card style={{borderRadius: 10, color: "white"}} >
         <LinearGradient
           start={{x: 0, y: 0}} end={{x: 1, y: 0}}
-          colors={["#2bace8", "#06559b"]}
+          colors={["#f7f7f7", "#f1f4f6"]}
           style={styles.linearGradient}>
           <ImageBackground source={this.props.bg || iconEthOpacity10} style={styles.imageContainer}>
 
@@ -40,14 +40,14 @@ class AccountDetails extends Component {
                 <Image style={{width: 35, height:35}} source={this.props.blockie || Logo}/>
               </View>
               <Flex direction="column" style={{paddingLeft:10}} >
-                <Icon style={{ color: "#FFF", fontSize: 20, marginTop: 15}} name="ios-help-circle-outline" />
+                <Icon style={{ color: "#90989c", fontSize: 20, marginTop: 15}} name="ios-help-circle-outline" />
               </Flex>
             </Flex>
-            <Text style={{color: "#FFF", fontSize: 10, paddingTop: 5}} note>0xk3m5sc...0x53r3gH7y</Text>
+            <Text style={{color: "#90989c", fontSize: 10, paddingTop: 5}} note>0xk3m5sc...0x53r3gH7y</Text>
           </Left>
           <Right>
-              <Text style={{color: "#FFF", fontSize: 20}} >{this.props.category || "General"}</Text>
-              <Text style={{color: "#FFF", fontSize: 12}} note>{this.props.transactionsCount || 0} Interactions</Text>
+              <Text style={{color: "#90989c", fontSize: 20}} >{this.props.category || "General"}</Text>
+              <Text style={{color: "#90989c", fontSize: 12}} note>{this.props.transactionsCount || 0} Interactions</Text>
               <Flex justify="flex-end" style={{paddingTop: 5}} >
                 {
                   this.props.interactions &&
@@ -62,8 +62,8 @@ class AccountDetails extends Component {
 
         <Flex style={{marginVertical: 15}} >
           <Flex direction="column" width={"55%"} >
-            <Text style={{color: "#FFF", fontSize: 20}}>ETH: {this.props.balanceEth || 0}</Text>
-            <Text style={{color: "#FFF",fontSize: 12}} note>Tokens: {this.props.balanceTokens || 0} | ${this.props.balanceCurrency || 0}</Text>
+            <Text style={{color: "#90989c", fontSize: 20}}>ETH: {this.props.balanceEth || 0}</Text>
+            <Text style={{color: "#90989c",fontSize: 12}} note>Tokens: {this.props.balanceTokens || 0} | ${this.props.balanceCurrency || 0}</Text>
           </Flex>
           <Flex direction="row" justify="flex-end" width={"45%"}>
             <Button icon
@@ -80,13 +80,13 @@ class AccountDetails extends Component {
 
         <Flex align="center">
           <Flex align="center" justify={"flex-start"} width={"80%"} >
-              <Text style={{ color: "#FFF", fontSize: 12, paddingRight: 10}}>Transactions</Text>
-              <Text style={{ color: "#FFF", fontSize: 12, paddingRight: 10}}>Subscriptions</Text>
+              <Text style={{ color: "#90989c", fontSize: 12, paddingRight: 10}}>Transactions</Text>
+              <Text style={{ color: "#90989c", fontSize: 12, paddingRight: 10}}>Subscriptions</Text>
               {/* <Text style={{ color: "#FFF", fontSize: 12, paddingRight: 10}}>Tokens</Text> */}
           </Flex>
           <Flex justify="flex-end" style={{width: "20%"}}>
-            <Icon style={{ color: "#FFF", fontSize: 16, marginRight: 10}} color="#FFF" name="ios-link-outline" />
-            <Icon style={{ color: "#FFF", fontSize: 16, marginTop: 1}} name="ios-menu" />
+            <Icon style={{ color: "#90989c", fontSize: 16, marginRight: 10}} color="#FFF" name="ios-link-outline" />
+            <Icon style={{ color: "#90989c", fontSize: 16, marginTop: 1}} name="ios-menu" />
           </Flex>
         </Flex>
         </ImageBackground>

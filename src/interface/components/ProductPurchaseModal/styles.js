@@ -23,17 +23,17 @@ export default {
     width: 65,
   },
   textName: {
-    color: "#FFF",
+    color: "#484848",
     fontSize: 18,
     fontWeight: "100",
   },
   textAccount: {
-    color: "#FFF",
+    color: "#484848",
     fontSize: 13,
     fontWeight: "300",
   },
   textBalance: {
-    color: "#FFF",
+    color: "#484848",
     fontSize: 14,
     fontWeight: "300",
     lineHeight: 14,

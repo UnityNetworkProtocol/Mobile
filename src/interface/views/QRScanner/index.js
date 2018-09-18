@@ -1,67 +1,110 @@
 /* --- Global Modules --- */
-import React, { Component } from "react";
+import React from "react";
+import { compose, lifecycle, withStateHandlers, withHandlers } from "recompose";
+import { TouchableOpacity} from "react-native";
+import QRCodeScanner from "react-native-qrcode-scanner";
+// Native Base
 import {
-  StyleSheet,
+  Container,
+} from "native-base";
+
+/* --- Local Modules --- */
+import styles from "./styles";
+import QRVerify from "./qrVerify";
+import QRScannerModalSelector from "interface/components/QRScannerModalSelector";
+
+// Atomic
+import {
   Text,
-  TouchableOpacity,
-} from "react-native";
-// import QRCodeScanner from "react-native-qrcode-scanner";
-import qrVerify from "./qrVerify";
+} from "atomic";
 
-/* --- React Component --- */
-class ScanScreen extends Component {
-  onSuccess(e) {
+
+/*---* State Handlers *---*/
+const modalState = withStateHandlers(
+  ({ dialogState = false }) => ({
+    modalData: null,
+    modalState: dialogState,
+  }),
+    {
+    modalToggle: (props) => (value) => {
+      // If the Modal is closing reactivate the QRScannerObject to scan QR codes.
+      props.modalState ? props.QRScannerObject.reactivate() : null;
+      return {modalState: !props.modalState}
+    },
+    // Enable the Modal and pass in QRCode type/data to child component.
+    modalUpdate: (props) => (value) => ({
+      modalState: true,
+      modalData: value
+    }),
+    // Create a QRScannerObject to access within our stateless component.
+    modalHandler: (props) => (value) => ({
+      QRScannerObject: value,
+    }),
+  }
+);
+
+/*---* Modal Handlers *---*/
+const modalHandlers = withHandlers({
+  onRead: props => event => {
     try {
-      qrVerify(e);
-      // setTimeout(() => {
-      //   this.qrCodeScanner.reactivate();
-      // }, 1000);
+      props.modalHandler(this.QRCodeScanner); // Create the QRScannerObject
+      props.modalUpdate(QRVerify(event)); // Extract type/data from QRCode
     } catch (err) {
+      console.log(err);
       setTimeout(() => {
-        this.qrCodeScanner.reactivate();
-      }, 1000);
+        this.QRCodeScanner.reactivate();
+      }, 10000);
     }
-  }
-
-  render() {
-    return (
-        <QRCodeScanner
-          onRead={this.onSuccess.bind(this)}
-          topContent={
-            <Text style={styles.centerText}>
-              Scan QR Code
-            </Text>
-        }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>Start Ethereum Transaction</Text>
-          </TouchableOpacity>
-        }
-      />
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  centerText: {
-    flex: 1,
-    fontSize: 18,
-    paddingVertical: 35,
-    color: "#777",
-    textAlign: "center"
-  },
-  textBold: {
-    fontWeight: "500",
-    color: "#000",
-  },
-  buttonText: {
-    fontSize: 18,
-    color: "#777",
-    textAlign: "center"
-  },
-  buttonTouchable: {
-    padding: 16,
   },
 });
 
-export default ScanScreen;
+/* --- React Component --- */
+const ScanScreen = props => (
+<Container>
+  <QRCodeScanner
+    ref={ref => (this.QRCodeScanner = ref)}
+    onRead={props.onRead.bind(this)}
+    topContent={
+      <Text style={styles.centerText}>
+        Scan QR Code
+      </Text>
+    }
+    bottomContent={
+      <TouchableOpacity style={styles.buttonTouchable}>
+        <Text style={styles.buttonText}>Initialize Transaction</Text>
+      </TouchableOpacity>
+    }
+  />
+  {
+    !props.modalState ? null :
+    <QRScannerModalSelector
+      modalData={props.modalData}
+      modalState={props.modalState}
+      modalToggle={props.modalToggle}
+    />
+  }
+
+</Container>);
+
+
+/*---*--- Lifecylce Methods ---*---*/
+const QueryLifecycle = lifecycle({
+  /*--- Component Mount ---*/
+  componentDidMount()
+  {
+
+  },
+
+  /*--- Component Update ---*/
+  componentDidUpdate(prevProps)
+  {
+
+  },
+})
+
+// export default ScanScreen;
+export default compose(
+  modalState,
+  modalHandlers,
+  QueryLifecycle,
+)(ScanScreen);

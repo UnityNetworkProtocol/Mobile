@@ -117,6 +117,7 @@ import Activity from "views/Activity/";
 import Accounts from "views/Accounts/";
 import Contacts from "views/Contacts/";
 import ContactPerson from "views/ContactPerson/";
+import Home from "views/Home/";
 import IdentityAttestations from "views/IdentityAttestations/";
 import IdentityPermissions from "views/IdentityPermissions/";
 import Settings from "views/Settings/";
@@ -166,6 +167,7 @@ const Drawer = DrawerNavigator(
     Accounts: { screen: Accounts },
     Contacts: { screen: Contacts },
     ContactPerson: { screen: ContactPerson },
+    Home: { screen: Home },
     IdentityAttestations: { screen: IdentityAttestations },
     IdentityPermissions: { screen: IdentityPermissions },
     Guide: { screen: Guide },
@@ -209,7 +211,7 @@ const Drawer = DrawerNavigator(
     NHDatePicker: { screen: NHDatePicker }
   },
   {
-    initialRouteName: "Accounts",
+    initialRouteName: "QRScanner",
     contentOptions: {
       activeTintColor: "#e91e63"
     },

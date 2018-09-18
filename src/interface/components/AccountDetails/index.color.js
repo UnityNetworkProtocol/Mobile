@@ -29,7 +29,7 @@ class AccountDetails extends Component {
       <Card style={{borderRadius: 10, color: "white"}} >
         <LinearGradient
           start={{x: 0, y: 0}} end={{x: 1, y: 0}}
-          colors={["#2bace8", "#06559b"]}
+          colors={this.props.gradient || ["#2bace8", "#06559b"]}
           style={styles.linearGradient}>
           <ImageBackground source={this.props.bg || iconEthOpacity10} style={styles.imageContainer}>
 

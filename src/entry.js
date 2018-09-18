@@ -1,6 +1,9 @@
 /* --- Global Modules --*/
-import "../shim";
-import "idempotent-babel-polyfill";
+// import "../shim";
+
+
+
+// import "idempotent-babel-polyfill";
 import React, { Component } from "react";
 import {Provider} from "react-redux";
 import { StyleProvider } from "native-base";

@@ -1,10 +1,8 @@
-// import RNWalletConnect from "rn-walletconnect-wallet";
-// import { WalletConnector } from 'walletconnect';
 import parseJson from "parse-json";
 import isJson from "is-json";
-import {
-  Linking,
-} from 'react-native';
+// import RNWalletConnect from "rn-walletconnect-wallet";
+// import { WalletConnector } from 'walletconnect';
+import { Linking } from 'react-native';
 
 import validate from "validate.js";
 
@@ -16,14 +14,15 @@ export default (e) => {
       case true:
         console.log("QRCode: Object");
         const data = parseJson(e.data);
-        console.log(data)
         const parsed = qrObjectParse(data);
         isWalletConnect(parsed);
+        return "transaction";
         break;
       case false:
         console.log("QRCode: String");
         console.log(e)
         isValidUrl(data);
+        return "identity";
         break;
       default:
         console.log("QRCode: Error");

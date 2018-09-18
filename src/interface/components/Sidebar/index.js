@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withNavigation } from "react-navigation";
-import { Image, ImageBackground } from "react-native";
+import { Image, ImageBackground, TouchableOpacity } from "react-native";
+
 import {
   H3,
   Content,
@@ -11,11 +12,23 @@ import {
 
 import { Icon, Flex, View } from "atomic";
 
+/* --- Local Modules --- */
+import AccountSelectionSidebar from "interface/components/AccountSelectionSidebar";
+// Assets
+import avatarDemo from "assets/images/avatarDemo.jpg";
+import bgUniverse from "src/assets/images/bgUniverse.jpg";
+import blockiePurple from "assets/blockiePurple.png";
+// 
 import ListItemParent from "./ListItemParent";
 import datas from "static/menu.js";
 import styles from "./style";
-import bgUniverse from "src/assets/images/bgUniverse.jpg";
-import blockiePurple from "assets/blockiePurple.png";
+
+const EthAmount = props => <Flex
+  align="center" justify="center"
+  style={styles.viewEth}>
+  <Text style={styles.textBalance}>32</Text>
+</Flex>
+
     
 class SideBar extends Component {
   render() {
@@ -27,20 +40,7 @@ class SideBar extends Component {
             Sidebar Header
           */}
           <ImageBackground source={bgUniverse} style={styles.imageContainer}>
-            <View>
-              <H3 style={styles.textLogo}>UNITY</H3>
-              <Text style={{fontSize: 12, color: "#FFF", textAlign:"center"}}>
-                Universal Wallet
-              </Text>
-              <Flex justify="space-evenly" style={{paddingVertical:10}} >
-                <Text style={{ color: "#D8D8D8", fontSize: 10, textAlign:"center"}}>
-                  blockchain: ethereum
-                </Text>
-                <Text style={{ color: "#D8D8D8", fontSize: 10, textAlign:"center"}}>
-                  network: mainnet
-                </Text>
-              </Flex>
-            </View>
+            <AccountSelectionSidebar/>
           </ImageBackground>
 
           

@@ -1,7 +1,5 @@
-/* --- Global Dependencies ---*/
-import React, { Component } from "react";
+import React from "react";
 import { Image, TouchableOpacity, View } from "react-native";
-import Modal from "react-native-modal";
 import {
   Button,
   Card,
@@ -17,54 +15,24 @@ import {
 
 import LogoAugur from "assets/logoAugur.png";
 
-/*--- React Component --- */
-export default class ModalTester extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isModalVisible: false
-    };
-  }
-
-  // Toggle Modal
-  _toggleModal = () =>
-    this.setState({ isModalVisible: !this.state.isModalVisible });
-
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
-        <TouchableOpacity onPress={this._toggleModal}>
-         <Button onPress={this._toggleModal}><Text>Transactions Request</Text></Button>
+export default props =>
+<Container>
+<Flex width="100%" style={{marginBottom: 12}} >
+      <Flex justify="flex-start" width={"50%"} >
+        <Text style={{color: "#FFF",fontSize: 18}}> Transaction</Text>
+      </Flex>
+      <Flex justify="flex-end" width={"50%"} >
+        <TouchableOpacity style={{paddingLeft: 20}} onPress={props.modalToggle}>
+          <Text style={{color: "#FFF", fontSize: 18}} note>X</Text>
         </TouchableOpacity>
-        <Modal
-          scrollable
-          isVisible={this.state.isModalVisible}
-          hideModalContentWhileAnimating={true}
-          animationIn="slideInUp" >
-          <ModalRender _toggleModal={this._toggleModal} />
-        </Modal>
-      </View>
-    );
-  }
-}
-
-const ModalRender = props =>
+      </Flex>
+    </Flex>
 <Container>
 <Content>
 <Card>
   {/* Card Header */}
   <CardItem bordered>
     <Flex direction="column" >
-    <Flex width="100%" >
-      <Flex justify="flex-start" width={"50%"} style={{textAlign: "left"}} >
-        <Text>Transaction Request</Text>
-      </Flex>
-      <Flex align="flex-end" width={"50%"} style={{textAlign: "right"}} >
-        <TouchableOpacity onPress={props._toggleModal}>
-          <Text note>Close</Text>
-        </TouchableOpacity>
-      </Flex>
-    </Flex>
     <Flex justify="space-between" width="100%" >
       <Text note  width="50%">network: mainnet</Text>
       <Text note  width="50%">network: healthy</Text>
@@ -136,7 +104,7 @@ const ModalRender = props =>
   <View style={{backgroundColor: "#eaeaf1", padding: 10}}>
     <Flex direction="column" >
       <Text note>smart contract</Text>
-      <Image source={LogoAugur} style={{width: 40, height: 40}} />
+      {/* <Image source={LogoAugur} style={{width: 40, height: 40}} /> */}
       <Text>Entity: Augur </Text>
       <Text>Address: bet.augur.eth (0x53v1l8...) </Text>
       <Text>Interactions: 34 </Text>
@@ -144,4 +112,5 @@ const ModalRender = props =>
   </View>
 </Card>
 </Content>
+</Container>
 </Container>

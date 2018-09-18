@@ -17,18 +17,18 @@ import Reactotron from "reactotron-react-native";
  * @desc Setup debugging tools for development.
  * https://github.com/infinitered/reactotron
  */
-if (global.__DEV__) {
-  let createStore = reduxCreateStore;
-  let sagaMiddlewarePlugins;
-  Reactotron
-    .configure({ name: "Unity" })
-    .useReactNative()
-    .use(sagaPlugin())
-    .use(reactotronRedux())
-    .connect()
-    .clear()
-  createStore = Reactotron.createStore;
-}
+// if (global.__DEV__) {
+//   let createStore = reduxCreateStore;
+//   let sagaMiddlewarePlugins;
+//   Reactotron
+//     .configure({ name: "Unity" })
+//     .useReactNative()
+//     .use(sagaPlugin())
+//     .use(reactotronRedux())
+//     .connect()
+//     .clear()
+//   createStore = Reactotron.createStore;
+// }
 
 /**
  * Configure Store

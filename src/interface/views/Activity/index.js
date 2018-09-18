@@ -1,6 +1,6 @@
 /* --- Global Dependencies ---*/
-import firebase from "react-native-firebase";
 import React, { Component } from "react";
+import styled from "styled-components";
 import { ImageBackground, View, StatusBar } from "react-native";
 import {
   Container,

@@ -19,8 +19,8 @@ export default {
     borderColor: "#FFF",
     borderRadius: 9999,
     borderWidth: 2,
-    height: 65,
-    width: 65,
+    height: 45,
+    width: 45,
   },
   textName: {
     color: "#FFF",
