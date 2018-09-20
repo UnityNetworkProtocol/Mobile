@@ -9,8 +9,8 @@ import {
 } from "native-base";
 
 /* --- Local Dependencies ---*/
-import HeaderStandard from "interface/components/HeaderStandard";
-import TransactionToken from "interface/components/TransactionToken";
+import HeaderStandard from "interface/components/general/HeaderStandard";
+import TransactionToken from "interface/components/transaction/TransactionToken";
 import AccountSelect from "interface/fields/AccountSelect";
 
 /* --- Component Dependencies ---*/

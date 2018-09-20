@@ -9,18 +9,12 @@ import {
 } from "native-base";
 
 /* --- Local Dependencies ---*/
-import HeaderStandard from "interface/components/HeaderStandard";
-import TransactionToken from "interface/components/TransactionToken";
-import AccountSelect from "interface/fields/AccountSelect";
+import HeaderStandard from "interface/components/general/HeaderStandard";
+import GuideKeyManagement from "interface/components/guide/GuideKeyManagement";
 
 /* --- Component Dependencies ---*/
 import styles from "./styles";
-import FooterTabMenu from './menu.js'
-import DemoTransactions from './demoTransactions'
-import bgUniverse from "src/assets/images/bgUniverse.jpg";
-import AccountTabs from "./Tabs";
 
-import GuideKeyManagement from "interface/components/GuideKeyManagement";
 
 /*--- React Component --- */
 export default class Settings extends Component {

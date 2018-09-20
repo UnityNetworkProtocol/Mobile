@@ -10,9 +10,7 @@ import {
 } from "native-base";
 
 /* --- Local Dependencies ---*/
-import HeaderStandard from "interface/components/HeaderStandard";
-import Modal from "interface/components/Modal";
-import TransactionModal from "interface/components/TransactionModal";
+import HeaderStandard from "interface/components/general/HeaderStandard";
 
 /* --- Component Dependencies ---*/
 import styles from "./styles";

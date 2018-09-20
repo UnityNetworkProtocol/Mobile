@@ -5,14 +5,11 @@ import { Container, Content, Button, H3 } from "native-base";
 
 /* --- Local Modules --- */
 import styles from "./styles";
-// Assets
-import avatarDemo from "assets/images/avatarDemo.jpg";
-import bgUniverse from "src/assets/images/bgUniverse.jpg";
-// Forms
-import AccountLogin from "forms/AccountLogin";
-import AccountSelection from "interface/components/AccountSelection";
-import TransactionTokenItem from "interface/components/TransactionTokenItem";
 import DemoTransactions from "demo/data/transactions";
+// Components
+import AccountLogin from "forms/AccountLogin";
+import AccountSelection from "interface/components/account/AccountSelection";
+import TransactionTokenItem from "interface/components/transaction/TransactionTokenItem";
 import {
   Flex,
   Icon,

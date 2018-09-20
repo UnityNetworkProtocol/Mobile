@@ -6,7 +6,7 @@ import {
 } from "native-base";
 
 /* --- Component Dependencies ---*/
-import TransactionToken from "interface/components/TransactionToken";
+import TransactionToken from "interface/components/transaction/TransactionToken";
 import DemoTransactions from "../demoTransactions";
 export default class TabOne extends Component {
   render() {

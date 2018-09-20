@@ -10,7 +10,7 @@ import {
   Icon,
   Text,
 } from "atomic";
-import HeaderStandard from "interface/components/HeaderStandard";
+import HeaderStandard from "interface/components/general/HeaderStandard";
 import AccountTabs from "./Tabs";
 /* ------- React Component ------- */
 export default props =>

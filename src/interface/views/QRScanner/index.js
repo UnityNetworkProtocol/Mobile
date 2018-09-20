@@ -11,7 +11,7 @@ import {
 /* --- Local Modules --- */
 import styles from "./styles";
 import QRVerify from "./qrVerify";
-import QRScannerModalSelector from "interface/components/QRScannerModalSelector";
+import QRScannerModalSelector from "interface/components/modal/QRScannerModalSelector";
 
 // Atomic
 import {

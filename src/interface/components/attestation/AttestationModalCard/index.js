@@ -6,6 +6,8 @@ import {
   CardItem,
   Container,
   Content,
+  Icon,
+  SwipeRow,
   Text,
 } from "native-base";
 
@@ -72,16 +74,44 @@ const DataMap = [
   }
 ]
 
+const AttestationItem = props =>(
+  <SwipeRow
+    leftOpenValue={75}
+    rightOpenValue={-75}
+    left={
+      <Button success onPress={() => alert("Add")}>
+        <Icon active name="add" style={{ color: "#FFF" }} />
+      </Button>
+    }
+    right={
+      <Button danger onPress={() => alert("Trash")}>
+        <Icon active name="trash" />
+      </Button>
+    }
+    body={
+      <Flex align="stretch" justify="space-between" style={{backgroundColor: "#FFF", borderRadius: 10, marginBottom: 7, padding: 7 }} >
+        <Flex align="center" width={"50%"} style={{textAlign: "left"}} >
+          <Text note>{props.label}:</Text>
+        </Flex>
+        <Flex direction="column" align="flex-end" width="50%" style={{textAlign: "right"}} >
+          <Text width="100%" style={{textAlign: "right"}}>{props.value}</Text>
+        </Flex>
+      </Flex>
+    }
+  />
+)
 const AttestationRow = props =>(
-<Flex align="stretch" justify="space-between" style={{backgroundColor: "#FFF", borderRadius: 10, marginBottom: 7, padding: 7 }} >
+ <Flex align="stretch" justify="space-between" style={{backgroundColor: "#FFF", borderRadius: 10, marginBottom: 7, padding: 7 }} >
   <Flex align="center" width={"50%"} style={{textAlign: "left"}} >
     <Text note>{props.label}:</Text>
   </Flex>
   <Flex direction="column" align="flex-end" width="50%" style={{textAlign: "right"}} >
     <Text width="100%" style={{textAlign: "right"}}>{props.value}</Text>
   </Flex>
-</Flex>
-)
+</Flex>)
+
+
+
 
 export default props =>
 <Container>
@@ -110,12 +140,31 @@ export default props =>
         </Flex>
       </CardItem>
       <Flex direction="column" style={{backgroundColor: "#f9f9fe", padding: 10}} >
-        {DataMap.map((attestation, key)=>
-          (<View key={key} style={{marginBottom: 10}} >
-            <Text>{attestation.title}</Text>
-            {attestation.claim.map((item, key)=><AttestationRow key={key} {...item}/>)}
-          </View>)
-        )}
+        {DataMap.map((attestation, key)=>(
+          <SwipeRow
+            leftOpenValue={175}
+            rightOpenValue={-75}
+
+            left={
+              <Button success onPress={() => alert("Add")}>
+                <Icon active name="add" style={{ color: "#FFF" }} />
+              </Button>
+            }
+            right={
+              <Button danger onPress={() => alert("Trash")}>
+                <Icon active name="trash" />
+              </Button>
+            }
+            body={
+              <View>
+                <Flex direction="column" key={key} style={{marginBottom: 10}} >
+                <Text>{attestation.title}</Text>
+                {attestation.claim.map((item, keyChild)=><AttestationRow key={keyChild} {...item}/>)}
+              </Flex>
+              </View>
+              }
+            />
+        ))}
       </Flex>
     </Card>
     </Content>

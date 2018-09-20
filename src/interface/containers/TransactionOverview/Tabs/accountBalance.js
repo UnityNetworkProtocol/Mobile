@@ -18,7 +18,7 @@ import {
   Icon,
   Text,
 } from "atomic";
-import TransactionToken from "interface/components/TransactionToken";
+import TransactionToken from "interface/components/transaction/TransactionToken";
 
 import Logo from "assets/logo.png";
 import iconEth from "assets/iconEth.png";

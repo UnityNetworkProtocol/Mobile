@@ -4,7 +4,7 @@ import { View } from "react-native";
 import {
   Content,
 } from "native-base";
-import TransactionToken from "interface/components/TransactionToken";
+import TransactionToken from "interface/components/transaction/TransactionToken";
 
 /* --- Component Dependencies ---*/
 import DemoTransactions from '../demoTransactions'

@@ -10,7 +10,7 @@ import {
   Flex,
   Text
 } from "atomic";
-import ContactItem from "components/ContactItem";
+import ContactItem from "components/contact/ContactItem";
 // Demo Contant
 import Contacts from "demo/data/contacts";
 

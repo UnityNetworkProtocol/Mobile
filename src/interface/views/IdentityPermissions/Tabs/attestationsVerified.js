@@ -11,7 +11,7 @@ import {
 } from "native-base";
 
 /* --- Internal Dependencies ---*/
-import AttestationCard from "interface/components/AttestationCard";
+import AttestationCard from "interface/components/attestation/AttestationCard";
 
 /* --- Component Dependencies ---*/
 import demo from "../demo";

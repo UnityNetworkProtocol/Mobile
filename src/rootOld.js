@@ -126,7 +126,7 @@ import Wallet from "views/Wallet/";
 import Guide from "views/Guide/";
 import Demo from "views/Demo/";
 // Components
-import SideBar from "components/Sidebar";
+import SideBar from "components/general/Sidebar";
 // Containers
 import AccountOverview from "containers/AccountOverview";
 import TransactionOverview from "containers/TransactionOverview";

@@ -12,7 +12,7 @@ import {
 } from "native-base";
 
 /* --- Local Dependencies ---*/
-import TransactionToken from "interface/components/TransactionToken";
+import TransactionToken from "interface/components/transaction/TransactionToken";
 
 /* --- Component Dependencies ---*/
 import DemoTransactions from '../demoTransactions'

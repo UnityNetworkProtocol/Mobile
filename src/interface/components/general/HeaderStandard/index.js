@@ -19,7 +19,6 @@ import {
   Text,
   View
 } from "atomic";
-import HeaderFab from "interface/components/HeaderFab";
 /* --- Component Dependencies ---*/
 class HeaderStandard extends Component {
   render() {

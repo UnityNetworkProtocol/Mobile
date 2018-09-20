@@ -1,7 +1,7 @@
 /* --- Global Modules --- */
 import React from "react";
 import { compose, lifecycle, withState, withStateHandlers, withHandlers } from "recompose";
-import { StyleSheet, TouchableOpacity} from "react-native";
+import { TouchableOpacity} from "react-native";
 import QRCodeScanner from "react-native-qrcode-scanner";
 // Native Base
 import {
@@ -11,13 +11,11 @@ import {
 /* --- Local Modules --- */
 import styles from "./styles";
 import qrVerify from "./qrVerify";
-import ProductPurchaseModal from "interface/components/ProductPurchaseModal";
+import QRScannerModalSelector from "interface/components/modal/QRScannerModalSelector";
 
 // Atomic
 import {
-  Flex,
   Text,
-  View
 } from "atomic";
 
 
@@ -88,7 +86,7 @@ const ScanScreen = props =>
   />
   {
     !props.dialog ? console.log(props.dialog) :
-    <ProductPurchaseModal modal={props.dialog} modalToggle={props.dialogToggle} /> 
+    <QRScannerModalSelector modal={props.dialog} modalToggle={props.dialogToggle} /> 
   }
 
 </Container>;

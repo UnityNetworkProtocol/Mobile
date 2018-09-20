@@ -5,7 +5,6 @@ import {
   Tabs,
   Tab,
   Text,
-
   TabHeading
 } from "native-base";
 import ContactList from "./accountBalance";

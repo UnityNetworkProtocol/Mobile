@@ -1,10 +1,9 @@
 /* --- Global Dependencies ---*/
-import React, {Component}  from "react";
+import React from "react";
 import Modal from "react-native-modal";
 /* --- Local Modules --- */
-import styles from "./styles";
-import AttestationModalCard from "interface/components/AttestationModalCard"
-import TransactionModalCard from "interface/components/TransactionModalCard"
+import AttestationModalCard from "interface/components/attestation/AttestationModalCard"
+import TransactionModalCard from "interface/components/transaction/TransactionModalCard"
 
 
 /*--- React Component --- */

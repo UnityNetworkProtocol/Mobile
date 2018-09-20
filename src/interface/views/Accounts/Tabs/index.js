@@ -11,7 +11,6 @@ import {
 import AccountBalance from "./accountBalance";
 import AccountInteractions from "./accountInteractions";
 import AccountTransactions from "./accountTransactions";
-import HeaderFab from "interface/components/HeaderFab";
 class ConfigTab extends Component {
   render() {
     return (

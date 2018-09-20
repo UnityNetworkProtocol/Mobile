@@ -9,8 +9,8 @@ import {
   Flex,
 } from "atomic";
 
-import HeaderStandard from "interface/components/HeaderStandard";
-import TransactionModal from "interface/components/TransactionModal";
+import HeaderStandard from "interface/components/general/HeaderStandard";
+import TransactionModal from "interface/components/transaction/TransactionModal";
 
 /* --- Component Dependencies ---*/
 

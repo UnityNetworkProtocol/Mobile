@@ -11,7 +11,7 @@ import {
   Icon,
   Text,
 } from "atomic";
-import HeaderStandard from "interface/components/HeaderStandard";
+import HeaderStandard from "interface/components/general/HeaderStandard";
 /* ------- React Component ------- */
 const Component = props =>
 <Container>

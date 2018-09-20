@@ -13,23 +13,20 @@ import {
 import { Icon, Flex, View } from "atomic";
 
 /* --- Local Modules --- */
-import AccountSelectionSidebar from "interface/components/AccountSelectionSidebar";
 // Assets
-import avatarDemo from "assets/images/avatarDemo.jpg";
+import styles from "./style";
+import ListItemParent from "./ListItemParent";
 import bgUniverse from "src/assets/images/bgUniverse.jpg";
 import blockiePurple from "assets/blockiePurple.png";
-// 
-import ListItemParent from "./ListItemParent";
+
+// Static Data
 import datas from "static/menu.js";
-import styles from "./style";
 
-const EthAmount = props => <Flex
-  align="center" justify="center"
-  style={styles.viewEth}>
-  <Text style={styles.textBalance}>32</Text>
-</Flex>
-
-    
+// Components
+import ToastMessage from "interface/components/toast/ToastMessage";
+import ModalAccountQR from "interface/components/modal/ModalAccountQR";
+import AccountSelectionSidebar from "interface/components/account/AccountSelectionSidebar";
+// 
 class SideBar extends Component {
   render() {
     return (
@@ -47,12 +44,18 @@ class SideBar extends Component {
           <Flex style={{backgroundColor: "#71bc20", paddingVertical: 7, paddingHorizontal: 5 }} >
             <Flex justify="flex-start" style={{width: "80%"}} >
               {/* <Icon style={{ color: "#FFF", fontSize: 16, marginRight: 5}} name="ios-contact-outline" /> */}
-              <Text style={{ color: "#FFF", fontSize: 12}}>Wallet:</Text>
-              <Image style={{width: 15, height:15}} source={blockiePurple}/>
-              <Text style={{ color: "#FFF", fontSize: 12}}>Bounty (0xk3m5sc...)</Text>
+              <Text style={{ color: "#FFF", fontSize: 12, marginRight: 5}}>Wallet:</Text>
+              <Image style={{width: 15, height:15, marginRight: 5}} source={blockiePurple}/>
+              <Text style={{ color: "#FFF", fontSize: 10, marginRight: 5}}>0xc78ba87a03...4390fd9f36f</Text>
             </Flex>
             <Flex justify="flex-end" style={{width: "20%"}} >
-              <Icon style={{ color: "#FFF", fontSize: 18, marginRight: 10}} color="#FFF" name="ios-link" />
+              <ToastMessage
+                text="Address Copied"
+                buttonText="OK"
+              >
+                <Icon style={{ color: "#FFF", fontSize: 18, marginRight: 10}} color="#FFF" name="ios-link" />
+              </ToastMessage>
+              <ModalAccountQR/>
             </Flex>
           </Flex>
           {/* 
@@ -67,13 +70,15 @@ class SideBar extends Component {
           {/* 
             Sidebar Footer
           */}
-          <Flex justify="center" align="center" style={{backgroundColor: "#1c9fd0", paddingVertical: 12, paddingHorizontal: 5 }} >
-            <Text style={{ color: "#FFF", fontSize: 13}}>Join The</Text>
-            <Icon style={{ color: "#FFF", fontSize: 18, marginHorizontal: 10}} color="#FFF" name="ios-pin-outline" />
-            <Text style={{ color: "#FFF", fontSize: 13}}>Global</Text>
-            <Icon style={{ color: "#FFF", fontSize: 18, marginHorizontal: 10}} color="#FFF" name="ios-people-outline" />
-            <Text style={{ color: "#FFF", fontSize: 13}}>Token Hunt</Text>
-          </Flex>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate("TokenQuest")}>
+            <Flex justify="center" align="center" style={{backgroundColor: "#1c9fd0", paddingVertical: 12, paddingHorizontal: 5 }} >
+                <Text style={{ color: "#FFF", fontSize: 13}}>Join The</Text>
+                <Icon style={{ color: "#FFF", fontSize: 18, marginHorizontal: 10}} color="#FFF" name="ios-pin-outline" />
+                <Text style={{ color: "#FFF", fontSize: 13}}>Global</Text>
+                <Icon style={{ color: "#FFF", fontSize: 18, marginHorizontal: 10}} color="#FFF" name="ios-people-outline" />
+                <Text style={{ color: "#FFF", fontSize: 13}}>Token Hunt</Text>
+            </Flex>
+          </TouchableOpacity>
         </Content>
       </Container>
     );

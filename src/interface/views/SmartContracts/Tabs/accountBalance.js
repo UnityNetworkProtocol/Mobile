@@ -2,20 +2,12 @@
 import React, { Component } from "react";
 import { View } from "react-native";
 import {
-  Content,
-  Header,
-  Button,
-  Icon,
-  Text,
-  Item,
-  Input,
+  Content
 } from "native-base";
 
 /* --- Local Dependencies ---*/
-import TransactionToken from "interface/components/TransactionToken";
-import AccountDetails from "interface/components/AccountDetails";
+import AccountDetails from "interface/components/account/AccountDetails";
 import LogoGitcoin from "assets/logoGitcoin.jpg";
-import LogoGnosis from "assets/logoGnosis.png";
 import LogoGovernX from "assets/logoGovernX.png";
 import LogoAugur from "assets/logoAugur.png";
 

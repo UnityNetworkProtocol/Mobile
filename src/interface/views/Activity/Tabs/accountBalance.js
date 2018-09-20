@@ -6,7 +6,7 @@ import {
 } from "native-base";
 
 /* --- Local Dependencies ---*/
-import AccountDetails from "interface/components/AccountDetails";
+import AccountDetails from "interface/components/account/AccountDetails";
 import LogoGitcoin from "assets/logoGitcoin.jpg";
 import logoBountiesNetwork from "assets/logoBountiesNetwork.jpg";
 import LogoGnosis from "assets/logoGnosis.png";

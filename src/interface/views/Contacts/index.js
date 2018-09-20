@@ -5,7 +5,7 @@ import {
 } from "native-base";
 
 /* --- Local Dependencies ---*/
-import HeaderStandard from "interface/components/HeaderStandard";
+import HeaderStandard from "interface/components/general/HeaderStandard";
 
 /* --- Component Dependencies ---*/
 import styles from "./styles";

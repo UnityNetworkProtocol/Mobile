@@ -16,8 +16,8 @@ import {
 } from "native-base";
 
 /* --- Internal Dependencies ---*/
-import SearchStandard from "interface/components/SearchStandard";
-import LocatorMap from "interface/components/LocatorMap";
+import SearchStandard from "interface/components/general/SearchStandard";
+import LocatorMap from "interface/components/map/LocatorMap";
 
 /* --- Component Dependencies ---*/
 import styles from "./styles";
