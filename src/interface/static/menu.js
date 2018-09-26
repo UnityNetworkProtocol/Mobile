@@ -2,12 +2,12 @@ export default [
   {
     name: "Accounts",
     route: "Accounts",
-    icon: "ios-cash-outline",
+    icon: "ios-contact-outline",
     bg: "#C5F442",
     children: [
       {
         hash: "activty",
-        name: "Activity",
+        name: "Tokens",
         route: "Activity",
         icon: "ios-analytics-outline",
         bg: "#C5F442"
@@ -15,6 +15,13 @@ export default [
       {
         hash: "subscriptions",
         name: "Subscriptions",
+        route: "Subscriptions",
+        icon: "ios-clock-outline",
+        bg: "#C5F442"
+      },
+      {
+        hash: "transactions",
+        name: "Transactions",
         route: "Subscriptions",
         icon: "ios-card-outline",
         bg: "#C5F442"
@@ -30,14 +37,14 @@ export default [
       {
         hash: "contactsadd",
         name: "Add New Contact",
-        route: "StateChannels",
-        icon: "ios-contacts-outline",
+        route: "ContactAdd",
+        icon: "ios-add-circle-outline",
         bg: "#C5F442"
       },
       {
         hash: "friends",
         name: "Friends",
-        route: "StateChannels",
+        route: "ContactsFriends",
         icon: "ios-contacts-outline",
         bg: "#C5F442"
       },
@@ -50,8 +57,8 @@ export default [
     bg: "#C5F442",
     children: [
       {
-        hash: "IdentityAttestations",
-        name: "IdentityAttestations",
+        hash: "identityattestations",
+        name: "Attestations",
         icon: "ios-git-network",
         bg: "#C5F442"
       },
@@ -66,29 +73,36 @@ export default [
   },
   {
     name: "Services",
-    route: "IdentityAttestations",
+    route: "StateChannels",
     icon: "ios-apps-outline",
     bg: "#C5F442",
     children: [
       {
-        hash: "domain",
-        name: "Personal Domain",
-        route: "Domain",
-        icon: "ios-bookmarks-outline",
-        bg: "#C5F442"
-      },
-      {
-        hash: "statechannels",
-        name: "Payment Channels",
-        route: "StateChannels",
-        icon: "ios-analytics-outline",
+        hash: "personalbank",
+        name: "Bank Safe",
+        route: "SmartContracts",
+        icon: "ios-cash-outline",
         bg: "#C5F442"
       },
       {
         hash: "smartcontracts",
-        name: "Smart Contracts",
+        name: "Bank Safe Extensions",
         route: "SmartContracts",
-        icon: "ios-cloud-circle-outline",
+        icon: "ios-options-outline",
+        bg: "#C5F442"
+      },
+      {
+        hash: "statechannels",
+        name: "State Channels",
+        route: "StateChannels",
+        icon: "ios-pulse-outline",
+        bg: "#C5F442"
+      },
+      {
+        hash: "domain",
+        name: "Global Domain",
+        route: "Domain",
+        icon: "ios-bookmarks-outline",
         bg: "#C5F442"
       },
     ]

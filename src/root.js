@@ -126,6 +126,7 @@ import Locator from "views/Locator/";
 import Wallet from "views/Wallet/";
 import Guide from "views/Guide/";
 import Demo from "views/Demo/";
+import StateChannels from "views/StateChannels/";
 import TokenQuest from "views/TokenQuest/";
 // Components
 import SideBar from "components/general/Sidebar";
@@ -175,6 +176,7 @@ const Drawer = DrawerNavigator(
     Locator: { screen: Locator },
     Settings: { screen: Settings },
     Transactions: { screen: Transactions },
+    StateChannels: { screen: StateChannels },
     TokenQuest: { screen: TokenQuest },
     QRScanner: { screen: QRScanner },
     Wallet: { screen: Wallet },
@@ -213,7 +215,8 @@ const Drawer = DrawerNavigator(
     NHDatePicker: { screen: NHDatePicker }
   },
   {
-    initialRouteName: "Activity",
+    initialRouteName: "Demo",
+    
     contentOptions: {
       activeTintColor: "#e91e63"
     },

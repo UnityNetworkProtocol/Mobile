@@ -11,6 +11,6 @@ import {
 export default props => 
 <Flex>
   <Text>
-    Account Overview
+    Demo
   </Text>
 </Flex>

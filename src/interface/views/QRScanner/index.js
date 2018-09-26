@@ -10,7 +10,9 @@ import {
 
 /* --- Local Modules --- */
 import styles from "./styles";
-import QRVerify from "./qrVerify";
+import QRParse from "helpers/QRparse";
+import debug from "helpers/debugger";
+// Components 
 import QRScannerModalSelector from "interface/components/modal/QRScannerModalSelector";
 
 // Atomic
@@ -48,9 +50,9 @@ const modalHandlers = withHandlers({
   onRead: props => event => {
     try {
       props.modalHandler(this.QRCodeScanner); // Create the QRScannerObject
-      props.modalUpdate(QRVerify(event)); // Extract type/data from QRCode
+      props.modalUpdate(QRParse(event)); // Extract type/data from QRCode
     } catch (err) {
-      console.log(err);
+      debug(err);
       setTimeout(() => {
         this.QRCodeScanner.reactivate();
       }, 10000);

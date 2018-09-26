@@ -1,6 +1,10 @@
 import {createRequestTypes, action} from "store/departments/utils";
-const entity = 'ethers'
+const entity = 'ethers';
 export const actions = {
+ACCOUNT_BALANCE: createRequestTypes('ACCOUNT_BALANCE'),
+ACCOUNT_HISTORY: createRequestTypes('ACCOUNT_HISTORY'),
+ACCOUNT_TRANSACTIONCOUNT: createRequestTypes('ACCOUNT_TRANSACTIONCOUNT'),
+
 WALLET_GENERATE_RANDOM: createRequestTypes('WALLET_GENERATE_RANDOM'),
 WALLET_GENERATE_JSON: createRequestTypes('WALLET_GENERATE_JSON'),
 WALLET_GENERATE_MENOMONIC: createRequestTypes('WALLET_GENERATE_MENOMONIC'),
@@ -25,9 +29,6 @@ PROVIDER_INFURA: createRequestTypes('PROVIDER_INFURA'),
 PROVIDER_FALLBACK: createRequestTypes('PROVIDER_FALLBACK'),
 PROVIDER_DEFAULT: createRequestTypes('PROVIDER_DEFAULT'),
 
-ACCOUNT_BALANCE: createRequestTypes('ACCOUNT_BALANCE'),
-ACCOUNT_TRANSACTIONCOUNT: createRequestTypes('ACCOUNT_TRANSACTIONCOUNT'),
-
 CONTRACT_CREATE: createRequestTypes('CONTRACT_CREATE'),
 CONTRACT_DEPLOY: createRequestTypes('CONTRACT_DEPLOY'),
 CONTRACT_CALL: createRequestTypes('CONTRACT_CALL'),
@@ -35,6 +36,10 @@ CONTRACT_ESTIMATE_GAS: createRequestTypes('CONTRACT_ESTIMATE_GAS'),
 CONTRACT_SEND_TRANSACTION: createRequestTypes('CONTRACT_SEND_TRANSACTION'),
 
 TRANSACTION_BATCH_PROCESS: createRequestTypes('TRANSACTION_BATCH_PROCESS'),
+
+accountBalance: status => (payload, metadata) => action(actions.ACCOUNT_BALANCE[status], payload, metadata, status, entity),
+accountHistory: status => (payload, metadata) => action(actions.ACCOUNT_HISTORY[status], payload, metadata, status, entity),
+accountTransactionCount: status => (payload, metadata) => action(actions.ACCOUNT_TRANSACTIONCOUNT[status], payload, metadata, status, entity),
 
 walletGenerateRandom: status => (payload, metadata) => action(actions.WALLET_GENERATE_RANDOM[status], payload, metadata, status, entity),
 walletGenerateJson: status => (payload, metadata) => action(actions.WALLET_GENERATE_JSON[status], payload, metadata, status, entity),
@@ -59,9 +64,6 @@ providerJsonRpc: status => (payload, metadata) => action(actions.PROVIDER_JSONRP
 providerInfura: status => (payload, metadata) => action(actions.PROVIDER_INFURA[status], payload, metadata, status, entity),
 providerFallback: status => (payload, metadata) => action(actions.PROVIDER_FALLBACK[status], payload, metadata, status, entity),
 providerDefault: status => (payload, metadata) => action(actions.PROVIDER_DEFAULT[status], payload, metadata, status, entity),
-
-accountBalance: status => (payload, metadata) => action(actions.ACCOUNT_BALANCE[status], payload, metadata, status, entity),
-accountTransactionCount: status => (payload, metadata) => action(actions.ACCOUNT_TRANSACTIONCOUNT[status], payload, metadata, status, entity),
 
 contractCreate: status => (payload, metadata) => action(actions.CONTRACT_CREATE[status], payload, metadata, status, entity),
 contractDeploy: status => (payload, metadata) => action(actions.CONTRACT_DEPLOY[status], payload, metadata, status, entity),

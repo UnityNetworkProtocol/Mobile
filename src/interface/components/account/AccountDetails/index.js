@@ -46,7 +46,7 @@ class AccountDetails extends Component {
             <Text style={{color: "#FFF", fontSize: 10, paddingTop: 5}} note>0xk3m5sc...0x53r3gH7y</Text>
           </Left>
           <Right>
-              <Text style={{color: "#FFF", fontSize: 20}} >{this.props.category || "General"}</Text>
+              <Text style={{color: "#FFF", fontSize: 20}} >{this.props.walletName || "General"}</Text>
               <Text style={{color: "#FFF", fontSize: 12}} note>{this.props.transactionsCount || 0} Interactions</Text>
               <Flex justify="flex-end" style={{paddingTop: 5}} >
                 {
@@ -67,10 +67,7 @@ class AccountDetails extends Component {
           </Flex>
           <Flex direction="row" justify="flex-end" width={"45%"}>
             <Button icon
-              onPress={() => this.props.navigation.navigate("AccountOverview",
-            {
-              account: "0x43kf55ab17f"
-            })}
+              onPress={() => this.props.navigation.navigate("AccountOverview",{address: this.props.address})}
               >
               <Image style={{ marginLeft:10, height:20, width: 20,}} source={iconEth}/>
               <Text style={{color: "#FFF", fontSize: 14}}>View Account</Text>

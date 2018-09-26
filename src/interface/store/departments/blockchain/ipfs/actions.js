@@ -6,6 +6,13 @@ FILES_GET: createRequestTypes('FILES_GET'),
 FILES_CREATE_STREAM: createRequestTypes('FILES_CREATE_STREAM'),
 FILES_CAT: createRequestTypes('FILES_CAT'),
 
+PUBSUB_SUBSCRIBE: createRequestTypes('PUBSUB_SUBSCRIBE'),
+PUBSUB_UNSUBSCIBE: createRequestTypes('PUBSUB_UNSUBSCIBE'),
+PUBSUB_PUBLISH: createRequestTypes('PUBSUB_PUBLISH'),
+PUBSUB_LS: createRequestTypes('PUBSUB_LS'),
+PUBSUB_PEERS: createRequestTypes('PUBSUB_PEERS'),
+
+
 BLOCKS_ADD: createRequestTypes('BLOCKS_ADD'),
 BLOCKS_GET: createRequestTypes('BLOCKS_GET'),
 BLOCKS_CREATE_STREAM: createRequestTypes('BLOCKS_CREATE_STREAM'),
@@ -26,6 +33,12 @@ filesAdd: status => (payload, metadata) => action(actions.FILES_ADD[status], pay
 filesGet: status => (payload, metadata) => action(actions.FILES_GET[status], payload, metadata, status, entity),
 filesCreateStream: status => (payload, metadata) => action(actions.FILES_CREATE_STREAM[status], payload, metadata, status, entity),
 filesCat: status => (payload, metadata) => action(actions.FILES_CAT[status], payload, metadata, status, entity),
+
+pubsubSubscribe: status => (payload, metadata) => action(actions.PUBSUB_SUBSCRIBE[status], payload, metadata, status, entity),
+pubsubUnsubscibe: status => (payload, metadata) => action(actions.PUBSUB_UNSUBSCIBE[status], payload, metadata, status, entity),
+pubsubPublish: status => (payload, metadata) => action(actions.PUBSUB_PUBLISH[status], payload, metadata, status, entity),
+pubsubLs: status => (payload, metadata) => action(actions.PUBSUB_LS[status], payload, metadata, status, entity),
+pubsubPeers: status => (payload, metadata) => action(actions.PUBSUB_PEERS[status], payload, metadata, status, entity),
 
 blocksAdd: status => (payload, metadata) => action(actions.BLOCKS_ADD[status], payload, metadata, status, entity),
 blocksGet: status => (payload, metadata) => action(actions.BLOCKS_GET[status], payload, metadata, status, entity),

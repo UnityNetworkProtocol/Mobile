@@ -140,8 +140,9 @@ export default props =>
         </Flex>
       </CardItem>
       <Flex direction="column" style={{backgroundColor: "#f9f9fe", padding: 10}} >
-        {DataMap.map((attestation, key)=>(
+        {DataMap.map((attestation, index)=>(
           <SwipeRow
+            key={index}
             leftOpenValue={175}
             rightOpenValue={-75}
 
@@ -157,9 +158,9 @@ export default props =>
             }
             body={
               <View>
-                <Flex direction="column" key={key} style={{marginBottom: 10}} >
+                <Flex direction="column" style={{marginBottom: 10}} >
                 <Text>{attestation.title}</Text>
-                {attestation.claim.map((item, keyChild)=><AttestationRow key={keyChild} {...item}/>)}
+                {attestation.claim.map((item, key)=><AttestationRow key={key} {...item}/>)}
               </Flex>
               </View>
               }

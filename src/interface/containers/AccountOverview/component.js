@@ -15,6 +15,6 @@ import AccountTabs from "./Tabs";
 /* ------- React Component ------- */
 export default props =>
 <Container>
-  <HeaderStandard title={props.data.account} />
+  <HeaderStandard title={props.address} />
   <AccountTabs {...props}/>
 </Container>;

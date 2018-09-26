@@ -1,51 +1,74 @@
+/* --- Global Dependencies ---*/
 import React, { Component } from "react";
+import { Image, ImageBackground } from "react-native";
 import {
+  Button,
   Container,
-  Header,
-  Title,
   Content,
   Text,
-  Button,
-  Icon,
-  Footer,
-  FooterTab,
-  Left,
-  Right,
-  Body
+  View,
 } from "native-base";
 
-import styles from "./styles";
+import { 
+  Flex
+} from "native-base";
 
-export default class Settings extends Component {
+/* --- Internal Dependencies ---*/
+import HeaderStandard from "interface/components/general/HeaderStandard";
+import StateChannelCard from "interface/containers/stateChannels/StateChannelCard";
+import StateChannelCreateModal from "interface/containers/stateChannels/StateChannelCreateModal";
+import ERC20Create from "interface/containers/tokens/ERC20Create";
+
+/* --- Component Dependencies ---*/
+import styles from "./styles";
+import bgInverse from "src/assets/images/bgInverse.jpg";
+
+
+const Quests = [
+  {
+    name: "Friend Network",
+    tagline: "Join the Festivities",
+    description: "Easily transfer money between friends.",
+    tokenReward: 10,
+    tokenClaimed: 140,
+    tokenSupply: 1000,
+  },
+  {
+    name: "Gitcoin Subscription",
+    tagline: "Monthly Recurring Payments",
+    description: "Monthly Payments from a Subscription service.",
+    tokenReward: 10,
+    tokenClaimed: 140,
+    tokenSupply: 1000,
+  },
+  {
+    name: "Moloch Subscription",
+    tagline: "Weekly Recurring Payments",
+    description: ".",
+    tokenReward: 10,
+    tokenClaimed: 140,
+    tokenSupply: 1000,
+  },
+];
+
+/*--- React Component --- */
+export default class Locator extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <Header>
-          <Left>
-            <Button
-              transparent
-              onPress={() => this.props.navigation.navigate("DrawerOpen")}
-            >
-              <Icon name="ios-menu" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Header</Title>
-          </Body>
-          <Right />
-        </Header>
-
-        <Content padder>
-          <Text>Content goes here</Text>
-        </Content>
-
-        <Footer>
-          <FooterTab>
-            <Button active full>
-              <Text>Footer</Text>
-            </Button>
-          </FooterTab>
-        </Footer>
+      <HeaderStandard title="State Channels" />
+        <ImageBackground source={bgInverse} style={styles.imageContainer}>
+          <Text style={{color: "#FFF", fontSize: 22}} >State Channels</Text>
+          <Text style={{color: "#FFF"}} note>Peer-to-Peer Connections</Text>
+        </ImageBackground>
+        <Container>
+          <StateChannelCreateModal/>
+          <Content style={{padding: 15}} >
+            {
+              Quests.map((quest, index)=> <StateChannelCard key={index} {...quest} /> )
+            }
+          </Content>
+        </Container>
       </Container>
     );
   }

@@ -1,9 +1,10 @@
-/* --- Global Dependencies ---*/
+/* --- Global Modules ---*/
 import React from "react";
 import Modal from "react-native-modal";
 /* --- Local Modules --- */
-import AttestationModalCard from "interface/components/attestation/AttestationModalCard"
-import TransactionModalCard from "interface/components/transaction/TransactionModalCard"
+import AttestationModalCard from "interface/components/attestation/AttestationModalCard";
+import TransactionModalCard from "interface/components/transaction/TransactionModalCard";
+import TransferModalCard from "interface/components/transaction/TransferModalCard";
 
 
 /*--- React Component --- */
@@ -21,12 +22,16 @@ export default props => (
 );
 
 const ModalSelector = ({modalData, modalToggle}) => {
-  switch (modalData) {
+  switch (modalData.type) {
     case "identity":
       return <AttestationModalCard
         modalData={modalData}
         modalToggle={modalToggle}/>;
-    case "transaction":
+    case "transfer":
+      return <TransferModalCard
+              modalData={modalData}
+              modalToggle={modalToggle}/>;
+    case "function":
       return <TransactionModalCard
         modalData={modalData}
         modalToggle={modalToggle}/>;

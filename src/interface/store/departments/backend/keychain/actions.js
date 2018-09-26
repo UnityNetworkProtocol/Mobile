@@ -1,4 +1,6 @@
-import {createRequestTypes, action} from "../utils";
+/* --- Local Modules --- */
+import {createRequestTypes, action} from "../../utils";
+
 const actions = {
   KEY_CREATE: createRequestTypes("KEY_CREATE"),
   KEY_SAVE: createRequestTypes("KEY_SAVE"),

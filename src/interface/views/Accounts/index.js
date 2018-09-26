@@ -11,7 +11,6 @@ import {
 
 /* --- Local Dependencies ---*/
 import HeaderStandard from "interface/components/general/HeaderStandard";
-
 /* --- Component Dependencies ---*/
 import styles from "./styles";
 import AccountTabs from "./Tabs";

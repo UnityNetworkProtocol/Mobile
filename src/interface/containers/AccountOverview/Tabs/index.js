@@ -25,7 +25,7 @@ class ConfigTab extends Component {
               </TabHeading>
             }
           >
-            <AccountBalance {...this.props} />
+            <AccountBalance wallet={this.props.wallet} history={this.props.history} />
           </Tab>
           <Tab
             heading={

@@ -1,6 +1,9 @@
 /* --- External Dependencies ---*/
 import { createStore as reduxCreateStore, applyMiddleware, compose } from "redux";
 import createSagaMiddleware from "redux-saga";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from 'redux-persist/lib/storage' // defaults to localStorage for web and AsyncStorage for react-native
+
 
 /* --- Redux Store ---*/
 import middlewares from "../departments/middlewares";
@@ -29,6 +32,14 @@ import Reactotron from "reactotron-react-native";
 //     .clear()
 //   createStore = Reactotron.createStore;
 // }
+
+
+const persistConfig = {
+  key: 'root',
+  storage,
+}
+
+
 
 /**
  * Configure Store
@@ -61,11 +72,14 @@ import Reactotron from "reactotron-react-native";
   enhancers.push(applyMiddleware(...middleware));
   rootEnhancer = composeEnhancers(...enhancers);
 
+
+  const persistedReducer = persistReducer(persistConfig, rootReducer); 
   /* --- Initial State ---*/
-  const store = createStore(rootReducer, loadedState, rootEnhancer);
+  const store = createStore(persistedReducer, loadedState, rootEnhancer);
+  const persistor = persistStore(store);
   sagaMiddleware.run(rootSagas); // Initialize Saga Middleware after creating store.
 
-  return store;
+  return { store, persistor };
 };
 
 export default { configureStore };

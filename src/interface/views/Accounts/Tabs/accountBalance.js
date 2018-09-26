@@ -28,13 +28,17 @@ const Gradients = {
   wiretap: [ "#8a2387", "#e94057", "#f27121"] // PuplrOrangy
 };
 
+
+import Wallets from "interface/containers/Wallets";
+
 /* --- React Component ---*/
 export default class TabOne extends Component {
   render() {
     return (
       <Content>
         <View style={{padding: 10}} >
-          <AccountDetails
+        <Wallets/>
+          {/* <AccountDetails
             category="Primary"
             blockie={blockiePurple}
             // bg={bgUniverse}
@@ -87,7 +91,7 @@ export default class TabOne extends Component {
             transactionsCount={420}
             balanceCurrency={2201}
             gradient={Gradients.kashmir}
-          />
+          /> */}
         </View>
       </Content>
     );

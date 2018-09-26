@@ -5,8 +5,6 @@ import MapView, {Marker, PROVIDER_GOOGLE } from "react-native-maps";
 
 /* --- Local Dependencies --- */
 import MarkerPoints from "demo/data/mapFiatOnRamp";
-
-console.log(MarkerPoints)
 /* --- React Component --- */
 export default class LocatorMap extends Component {
  render() {
