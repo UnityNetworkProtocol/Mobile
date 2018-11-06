@@ -24,7 +24,7 @@ const mapDispatchToProps = (dispatch, props) => ({
       delta: 'wallet|history',
       network: 'rinkeby'
     },
-    )),
+  )),
 });
 
 /*-* Recompose *-*/

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withNavigation } from "react-navigation";
 import { Image, ImageBackground, TouchableOpacity } from "react-native";
-
+import LinearGradient from "react-native-linear-gradient";
 import {
   H3,
   Content,
@@ -25,7 +25,7 @@ import datas from "static/menu.js";
 // Components
 import ToastMessage from "interface/components/toast/ToastMessage";
 import ModalAccountQR from "interface/components/modal/ModalAccountQR";
-import AccountSelectionSidebar from "interface/components/account/AccountSelectionSidebar";
+import AccountSelectionSidebar from "interface/containers/interface/AccountSelectionSidebar";
 // 
 class SideBar extends Component {
   render() {
@@ -36,28 +36,13 @@ class SideBar extends Component {
           {/* 
             Sidebar Header
           */}
-          <ImageBackground source={bgUniverse} style={styles.imageContainer}>
+          <LinearGradient
+            start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+            colors={this.props.gradient || ["#6832a2", "#4e3df5"]}
+            style={styles.linearGradient}
+            >
             <AccountSelectionSidebar/>
-          </ImageBackground>
-
-          
-          <Flex style={{backgroundColor: "#71bc20", paddingVertical: 7, paddingHorizontal: 5 }} >
-            <Flex justify="flex-start" style={{width: "80%"}} >
-              {/* <Icon style={{ color: "#FFF", fontSize: 16, marginRight: 5}} name="ios-contact-outline" /> */}
-              <Text style={{ color: "#FFF", fontSize: 12, marginRight: 5}}>Wallet:</Text>
-              <Image style={{width: 15, height:15, marginRight: 5}} source={blockiePurple}/>
-              <Text style={{ color: "#FFF", fontSize: 10, marginRight: 5}}>0xc78ba87a03...4390fd9f36f</Text>
-            </Flex>
-            <Flex justify="flex-end" style={{width: "20%"}} >
-              <ToastMessage
-                text="Address Copied"
-                buttonText="OK"
-              >
-                <Icon style={{ color: "#FFF", fontSize: 18, marginRight: 10}} color="#FFF" name="ios-link" />
-              </ToastMessage>
-              <ModalAccountQR/>
-            </Flex>
-          </Flex>
+          </LinearGradient>
           {/* 
             Sidebar Menu
           */}

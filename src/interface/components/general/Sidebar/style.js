@@ -60,6 +60,9 @@ export default {
     paddingVertical: 20,
     paddingHorizontal: 20,
   },
+  linearGradient: {
+    
+  },
   textLogo: {
     color: "#D8D8D8",
     height: 40,

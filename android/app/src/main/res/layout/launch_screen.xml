@@ -7,10 +7,10 @@
     android:background="@drawable/launch_screen">
     
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="240dp"
-        android:src="@mipmap/ic_launcher"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="165dp"
+        android:src="@mipmap/logo_name"
         android:layout_gravity="center"
     />
     <!-- <ImageView

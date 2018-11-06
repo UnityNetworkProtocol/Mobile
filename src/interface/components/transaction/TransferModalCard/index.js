@@ -29,7 +29,7 @@ const mapDispatchToProps = (dispatch, props) => ({
       type: 'transaction',
       network: 'rinkeby'
     },
-    )),
+  )),
 });
 
 /*-* Recompose *-*/
@@ -37,11 +37,10 @@ const QueryLifecycle = lifecycle(
   {
     componentDidMount()
     {
-      console.log('Modal Mounted', this.props)
+
     },
     componentDidUpdate(prevProps)
     {
-      console.log('Modal Update',this.props)
       if (this.props.sign) {
         this.props.modalToggle();
         Toast.show({ 

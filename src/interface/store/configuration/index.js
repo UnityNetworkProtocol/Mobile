@@ -76,10 +76,12 @@ const persistConfig = {
   const persistedReducer = persistReducer(persistConfig, rootReducer); 
   /* --- Initial State ---*/
   const store = createStore(persistedReducer, loadedState, rootEnhancer);
+  // const store = createStore(rootReducer, loadedState, rootEnhancer);
   const persistor = persistStore(store);
   sagaMiddleware.run(rootSagas); // Initialize Saga Middleware after creating store.
 
-  return { store, persistor };
+  return { store };
+  // return { store, persistor };
 };
 
 export default { configureStore };

@@ -1,8 +1,26 @@
+import KeyStorage from 'react-native-sensitive-info';
+import LocalAuth from 'react-native-local-auth';
+
+
 import { put, takeEvery } from 'redux-saga/effects';
-import actions from './actions'
+import actions from './actions';
 
 export function * keySave ({payload, metadata}) {
   try {
+
+    const { keyPublic, keyPrivate } = payload;
+      
+    const auth = yield LocalAuth.authenticate({
+      reason: 'Authentication',
+      falbackToPasscode: true,    // fallback to passcode on cancel
+      suppressEnterPassword: false // disallow Enter Password fallback
+    })
+
+    const keyStorage = yield KeyStorage.setItem('key2', 'value2', {
+      showModal: true,
+      sharedPreferencesName: 'unity',
+      encrypt: true
+    });
 
     yield put(actions.keySave("SUCCESS")(
       payload,

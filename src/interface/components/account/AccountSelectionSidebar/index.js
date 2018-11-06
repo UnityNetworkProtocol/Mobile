@@ -59,32 +59,32 @@ export default class ModalTester extends Component {
               <Text style={styles.textAccount}>kames.unity.eth</Text>
           </Flex>
           <Flex direction="column" justify="center" width={"10%"} >
-            <TouchableOpacity onPress={this._toggleModal}>
+            <TouchableOpacity onPress={this._toggleModal} >
               <Icon style={{ color: "#FFF", fontSize: 22}} name="ios-arrow-dropdown" />
             </TouchableOpacity>
           </Flex>
         </Flex>
         <Flex justify="space-between" style={{marginTop: 20}} >
         <Flex direction="column" align="center" justify="center" >
-          <Flex justify="space-evenly" >
-            <Icon style={{color: "#FFF", fontSize: 22, marginRight: 15}} name="ios-analytics-outline" />
+          <Flex align="center" >
+            <Icon style={{color: "#FFF", fontSize: 16, marginRight: 5}} name="ios-analytics-outline" />
             <Text style={{color: "#FFF"}}>{this.props.accountChannels || 0}</Text>
           </Flex>
-          <Text note>Channels</Text>
+          <Text note  style={{color: "#FFF", fontSize: 10}}>Channels</Text>
         </Flex>
         <Flex direction="column" align="center" justify="center" >
-          <Flex>
-            <Icon style={{color: "#FFF", fontSize: 22, marginRight: 15}}  name="ios-cloud-circle-outline" />
+          <Flex align="center" >
+            <Icon style={{color: "#FFF", fontSize: 16, marginRight: 5}} name="ios-cloud-circle-outline" />
             <Text style={{color: "#FFF"}}>{this.props.accountRequests || 0}</Text>
           </Flex>
-          <Text note>Requests</Text>
+          <Text note  style={{color: "#FFF", fontSize: 10}}>Requests</Text>
         </Flex>
         <Flex direction="column" align="center" justify="center" >
-          <Flex>
-            <Icon style={{color: "#FFF", fontSize: 22, marginRight: 15}}  name="ios-cube-outline" />
+          <Flex align="center" >
+            <Icon style={{color: "#FFF", fontSize: 16, marginRight: 5}}  name="ios-cube-outline" />
             <Text style={{color: "#FFF"}}>{this.props.accountNotifications || 0}</Text>
           </Flex>
-          <Text note>Notifications</Text>
+          <Text note style={{color: "#FFF", fontSize: 10}}>Notifications</Text>
         </Flex>
       </Flex>
         <Modal

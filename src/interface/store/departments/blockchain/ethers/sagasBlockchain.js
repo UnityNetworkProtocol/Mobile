@@ -5,6 +5,7 @@ import actions from './actions'
 import ethers from 'ethers'
 import { networkRouting } from "./helpers"
 
+
 /* --- Blockchain Sagas --- */
 export function * blockchainBlockNumber ({payload, metadata}) {
   try {
@@ -67,10 +68,9 @@ export function * blockchainBlock ({payload, metadata}) {
 
 export function * blockchainTransaction ({payload, metadata}) {
   try {
-    const { network } = metadata
+    const { network } = metadata;
     const provider = networkRouting(network)
-    const transactionHash = payload
-    const transaction = yield provider.getTransaction(transactionHash)
+    const transaction = yield provider.getTransaction(payload)
     yield put(actions.blockchainTransaction("SUCCESS")(
       transaction,
       metadata,
@@ -87,9 +87,11 @@ export function * blockchainTransaction ({payload, metadata}) {
 
 export function * blockchainTransactionReceipt ({payload, metadata}) {
   try {
-
+      const { network } = metadata;
+      const provider = networkRouting(network);
+      const transactionReceipt = yield provider.getTransactionReceipt(payload);
     yield put(actions.blockchainTransactionReceipt("SUCCESS")(
-      payload,
+      transactionReceipt,
       metadata,
     ))
   } catch (err) {

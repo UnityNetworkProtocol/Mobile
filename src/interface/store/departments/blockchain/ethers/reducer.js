@@ -2,20 +2,24 @@ import { initialState } from './selectors'
 import actions from './actions'
   
 export default (state = initialState, {type, payload, metadata, batch, entity} ) => {
-  if(!!(metadata && metadata.delta) && entity === 'ethers') {
+  if (!!(metadata && metadata.delta) && entity === 'ethers') {
+    const status = {
+      REQUESTED: undefined,
+      SUCCESS: true,
+      FAILURE: false
+    }[batch]
     return {
       ...state,
       [metadata.delta]: {
         ...state[metadata.delta],
-        status: {
-          REQUESTED: undefined,
-          SUCCESS: true,
-          FAILURE: false
-        }[batch],
-        data: payload
+        status: status,
+        data: payload,
+        meta: metadata,
+        input: !status ? payload : state[metadata.delta].input,
+        output: status ? payload : null
       }
     }
-  } else{
+  } else {
     switch (type) {
       case actions.PROVIDER_CHANGE:
         return {

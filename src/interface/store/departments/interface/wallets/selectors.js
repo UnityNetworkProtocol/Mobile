@@ -9,8 +9,15 @@ export const initialState = {
     balanceTokens: 4,
     nonce: 35,
     transactionCount: 35,
-    walletName: "ShadowKnight"
+    accountChannels: 2,
+    accountRequests: 6,
+    accountNotifications: 1,
+    walletName: "ShadowKnight",
+    walletChannels: 3,
+    walletRequests: 8,
+    walletNotifications: 6,
   },
+
   "0xbE335c3D8614a863A550966372c865E079CcA4E8": {
     address: "0xbE335c3D8614a863A550966372c865E079CcA4E8",
     addressEns: "BuidlGuidl.unity.eth",
@@ -19,7 +26,13 @@ export const initialState = {
     balanceTokens: 13,
     nonce: 11,
     transactionCount: 11,
-    walletName: "BuidlGuidl"
+    accountChannels: 4,
+    accountRequests: 5,
+    accountNotifications: 19,
+    walletName: "BuidlGuidl",
+    walletChannels: 1,
+    walletRequests: 3,
+    walletNotifications: 2,
   }
 };
 

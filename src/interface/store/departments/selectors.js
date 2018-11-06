@@ -3,6 +3,9 @@
 import forIn from "lodash/forIn";
 /* --- Local Modules --- */
 
+// Backend
+import keychainSelectors from "./backend/keychain/selectors";
+
 // Decentralized
 import ethersSelectors from "./blockchain/ethers/selectors";
 import ipfsSelectors from "./blockchain/ipfs/selectors";
@@ -16,7 +19,11 @@ import walletSelectors from "./interface/wallets/selectors";
 // Branch Selector
 const getBranch = (state = {}, storeName) => state[storeName] || {};
 
+
+
 // Parent Object
+module.exports.fromKeychain = {};
+
 module.exports.fromEthers = {};
 module.exports.fromIpfs = {};
 
@@ -24,6 +31,15 @@ module.exports.fromDeployed = {};
 module.exports.fromIdentity = {};
 module.exports.fromTracer = {};
 module.exports.fromWallets = {};
+
+// Keychain Branch
+forIn(keychainSelectors, (selector, name) => {
+  if (typeof selector === "function") {
+    module.exports.fromKeychain[name] = (state, ...args) => selector(getBranch(state, "keychain"), ...args);
+  }
+});
+
+/* ----------------------------------- */
 
 // Ethers Branch
 forIn(ethersSelectors, (selector, name) => {

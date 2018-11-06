@@ -1,5 +1,6 @@
 /* --- Global Dependencies --- */
 import { connect } from "react-redux";
+import { withNavigation } from "react-navigation";
 import { compose, lifecycle } from "recompose";
 /* --- Local Dependencies --- */
 import deployed from "interface/store/departments/interface/deployed/actions";
@@ -70,16 +71,25 @@ const QueryLifecycle = lifecycle(
        * IF the Smart Contract deploy transaction has been submitted to the blockchain
        * succesfully add the transaction information to persisted state.
        */
-      console.log(this.props)
       if ( this.props.contractDeployTransaction && this.props.contractDeployTransaction.status)
       {
-        this.props.deployedSave(this.props.contractDeployTransaction.data);
+        // this.props.deployedSave(this.props.contractDeployTransaction.data);
+        /**
+         * NAVIGATE to the the ContractDeployed View.
+         * PASS the transaction receipt AND smart contract metadata.
+         */
+        this.props.navigation.navigate("ContractDeployed", {
+          transaction: this.props.contractDeployTransaction.data,
+          contract: {
+            type: "ERC20"
+          }
+        });
       }
     }
   });
 
 /* --- Export --- */
-export default compose(
+export default withNavigation(compose(
   connect(mapStateToProps, mapDispatchToProps),
   QueryLifecycle,
-)(Component);
+)(Component));

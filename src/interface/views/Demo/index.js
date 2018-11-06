@@ -22,6 +22,8 @@ import WalletUpdateNonce from "testing/WalletUpdateNonce";
 import SafeCreate from "testing/SafeCreate";
 import IPFSPubSub from "testing/IPFSPubSub";
 
+import Keychain from "testing/Keychain";
+
 import ERC20Create from "interface/containers/tokens/ERC20Create";
 
 /* --- React Component ---*/
@@ -33,6 +35,8 @@ export default class Demo extends Component {
         <HeaderStandard title="Demos" />
         <Content>
           <Flex direction="column" style={{padding: 10}} >
+            <Keychain/>
+            
             <ERC20Create/>
             <WalletUpdateNonce/>
             <SafeCreate/>

@@ -20,6 +20,9 @@ import walletsReducer from "./interface/wallets/reducer";
 
 /* --- Root Reducer --- */
 export default combineReducers({
+  // Backend
+  keychain: keychainReducer,
+
   // Interface
   accounts: accountsReducer,
   contacts: contactsReducer,
@@ -32,8 +35,5 @@ export default combineReducers({
   // Decenralized
   ethers: ethersReducer,
   ipfs: ipfsReducer,
-
-  // Backend
-  keychain: keychainReducer
 });
 

@@ -4,6 +4,8 @@ import android.app.Application;
 import com.BV.LinearGradient.LinearGradientPackage; // Linear Gradients
 import org.devio.rn.splashscreen.SplashScreenReactPackage; // Splash Screen
 import com.facebook.react.ReactApplication;
+import io.tradle.react.LocalAuthPackage;
+import br.com.classapp.RNSensitiveInfo.RNSensitiveInfoPackage;
 // import com.tradle.react.UdpSocketsModule;
 // import com.peel.react.TcpSocketsModule;
 // import com.peel.react.rnos.RNOSModule;
@@ -38,6 +40,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new LocalAuthPackage(),
+            new RNSensitiveInfoPackage(),
             new RNFirebasePackage(),
             new RNFirebaseMessagingPackage(),
             // new UdpSocketsModule(),

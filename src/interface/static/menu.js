@@ -7,9 +7,16 @@ export default [
     children: [
       {
         hash: "activty",
-        name: "Tokens",
+        name: "Cryptocurrency/Tokens",
         route: "Activity",
         icon: "ios-analytics-outline",
+        bg: "#C5F442"
+      },
+      {
+        hash: "statechannels",
+        name: "Payment Channels",
+        route: "StateChannels",
+        icon: "ios-pulse-outline",
         bg: "#C5F442"
       },
       {
@@ -26,6 +33,42 @@ export default [
         icon: "ios-card-outline",
         bg: "#C5F442"
       },
+    ]
+  },
+  {
+    name: "Applications",
+    route: "StateChannels",
+    icon: "ios-apps-outline",
+    bg: "#C5F442",
+    children: [
+      {
+        hash: "personalbank",
+        name: "Digital Bank Safe",
+        route: "SmartContracts",
+        icon: "ios-cash-outline",
+        bg: "#C5F442"
+      },
+      {
+        hash: "deployedContracts",
+        name: "Deployed",
+        route: "DeployedContracts",
+        icon: "ios-clipboard-outline",
+        bg: "#C5F442"
+      },
+      {
+        hash: "smartcontracts",
+        name: "Token Minting",
+        route: "SmartContracts",
+        icon: "ios-analytics-outline",
+        bg: "#C5F442"
+      },
+      // {
+      //   hash: "domain",
+      //   name: "Global Domain",
+      //   route: "Domain",
+      //   icon: "ios-bookmarks-outline",
+      //   bg: "#C5F442"
+      // },
     ]
   },
   {
@@ -71,44 +114,7 @@ export default [
       },
     ]
   },
-  {
-    name: "Services",
-    route: "StateChannels",
-    icon: "ios-apps-outline",
-    bg: "#C5F442",
-    children: [
-      {
-        hash: "personalbank",
-        name: "Bank Safe",
-        route: "SmartContracts",
-        icon: "ios-cash-outline",
-        bg: "#C5F442"
-      },
-      {
-        hash: "smartcontracts",
-        name: "Bank Safe Extensions",
-        route: "SmartContracts",
-        icon: "ios-options-outline",
-        bg: "#C5F442"
-      },
-      {
-        hash: "statechannels",
-        name: "State Channels",
-        route: "StateChannels",
-        icon: "ios-pulse-outline",
-        bg: "#C5F442"
-      },
-      {
-        hash: "domain",
-        name: "Global Domain",
-        route: "Domain",
-        icon: "ios-bookmarks-outline",
-        bg: "#C5F442"
-      },
-    ]
-  },
-
-
+  
   {
     name: "Locator",
     route: "Locator",
@@ -136,48 +142,88 @@ export default [
     name: "Settings",
     route: "Settings",
     icon: "ios-construct-outline",
-    bg: "#C5F442"
-  },
-  {
-    name: "Guide",
-    route: "Guide",
-    icon: "ios-bulb-outline",
     bg: "#C5F442",
     children: [
       {
-        hash: "win",
-        name: "What Is Blockchain",
-        route: "StateChannels",
-        icon: "ios-clipboard-outline",
-        bg: "#C5F442"
+        hash: "guide",
+        name: "Guide",
+        route: "Guide",
+        icon: "ios-bulb-outline",
+        bg: "#C5F442",
+        children: [
+          {
+            hash: "win",
+            name: "What Is Blockchain",
+            route: "StateChannels",
+            icon: "ios-clipboard-outline",
+            bg: "#C5F442"
+          },
+          {
+            hash: "lost",
+            name: "Wallet Security",
+            route: "SmartContracts",
+            icon: "ios-clipboard-outline",
+            bg: "#C5F442"
+          },
+          {
+            hash: "lost",
+            name: "Decentralized Identity",
+            route: "SmartContracts",
+            icon: "ios-clipboard-outline",
+            bg: "#C5F442"
+          },
+          {
+            hash: "lost",
+            name: "Low-Cost Transactions",
+            route: "SmartContracts",
+            icon: "ios-cube-outline",
+            bg: "#C5F442"
+          },
+        ]
       },
       {
-        hash: "lost",
-        name: "Wallet Security",
-        route: "SmartContracts",
-        icon: "ios-clipboard-outline",
-        bg: "#C5F442"
-      },
-      {
-        hash: "lost",
-        name: "Decentralized Identity",
-        route: "SmartContracts",
-        icon: "ios-clipboard-outline",
-        bg: "#C5F442"
-      },
-      {
-        hash: "lost",
-        name: "Low-Cost Transactions",
-        route: "SmartContracts",
-        icon: "ios-cube-outline",
+        hash: "demo",
+        name: "Demo",
+        route: "Demo",
+        icon: "ios-construct-outline",
         bg: "#C5F442"
       },
     ]
   },
-  {
-    name: "Demo",
-    route: "Demo",
-    icon: "ios-construct-outline",
-    bg: "#C5F442"
-  },
+  // {
+  //   name: "Guide",
+  //   route: "Guide",
+  //   icon: "ios-bulb-outline",
+  //   bg: "#C5F442",
+  //   children: [
+  //     {
+  //       hash: "win",
+  //       name: "What Is Blockchain",
+  //       route: "StateChannels",
+  //       icon: "ios-clipboard-outline",
+  //       bg: "#C5F442"
+  //     },
+  //     {
+  //       hash: "lost",
+  //       name: "Wallet Security",
+  //       route: "SmartContracts",
+  //       icon: "ios-clipboard-outline",
+  //       bg: "#C5F442"
+  //     },
+  //     {
+  //       hash: "lost",
+  //       name: "Decentralized Identity",
+  //       route: "SmartContracts",
+  //       icon: "ios-clipboard-outline",
+  //       bg: "#C5F442"
+  //     },
+  //     {
+  //       hash: "lost",
+  //       name: "Low-Cost Transactions",
+  //       route: "SmartContracts",
+  //       icon: "ios-cube-outline",
+  //       bg: "#C5F442"
+  //     },
+  //   ]
+  // },
 ];

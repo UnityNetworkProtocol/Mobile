@@ -3,15 +3,18 @@ import parseJson from "parse-json";
 import isJson from "is-json";
 import fromExponential from 'from-exponential';
 import ethers from "ethers"
+import identity, { verify } from './identity';
 // import RNWalletConnect from "rn-walletconnect-wallet";
 // import { WalletConnector } from "walletconnect";
 import { Linking } from "react-native";
 
 import validate from "validate.js";
 const { utils } = ethers;
-console.log(utils)
+
+
+const VerifyStuff = async data => await identity.verify(data);
 /* --- Module --- */
-export default (e) => {
+export default async (e) => {
   try {
     const isJsonObject = isJson(e.data);
     switch (isJsonObject) {
@@ -25,19 +28,41 @@ export default (e) => {
         const parsedTransactionQuery = parseURLProtocol(parsedTransaction);
         const parsedAddressFunction = parseAddressFunction(parsedTransaction.pathname);
 
-        console.log(parsedTransactionQuery);
-        console.log(parsedAddressFunction);
-
-        /**
-         * Logic to determine if QR code is ETH Transfer or ETH Smart Contract
-         * Notes(@kamescg): This simple like the most simple way to determin if the
-         * EIP 831 URI format contains only a transfer or function call by splitting
-         * the URI pathname at "/" and IF length 1 it's ETH transfer if IF length 2
-         * it's a Smart Contract function.
-         */
-        return (parsedAddressFunction.length = 1)
-        ? generateTransferParameters(parsedTransactionQuery, parsedAddressFunction)
-        : generateFunctionParameters(parsedTransactionQuery, parsedAddressFunction);
+        console.log(parsedTransaction) 
+        console.log(parsedTransactionQuery)
+        
+        switch (parsedTransaction.protocol) {
+          case 'me.uport:':
+            console.log('uporrrt')
+            console.log(parsedTransaction) 
+            console.log(parsedTransactionQuery)
+            const attestationUport = await identity.verify(parsedTransactionQuery.object.attestations) 
+            return {
+              type: "attestation",
+              attestation: attestationUport
+            }
+          case 'did:':
+            const attestation = await identity.verify(parsedTransactionQuery.object.attestation) 
+            return {
+              type: "attestation",
+              attestation
+            }
+            break;
+            case "ethereum:":
+              /**
+               * Determine if QR code is ETH Transfer or ETH Smart Contract call.
+               * Notes(@kamescg): This simple like the most simple way to determin if the
+               * EIP 831 URI format contains only a transfer or function call by splitting
+               * the URI pathname at "/" and IF length 1 it's ETH transfer if IF length 2
+               * it's a Smart Contract function.
+               */
+              return (parsedAddressFunction.length = 1)
+                ? generateTransferParameters(parsedTransactionQuery, parsedAddressFunction)
+                : generateFunctionParameters(parsedTransactionQuery, parsedAddressFunction);
+          default:
+            break;
+        }
+        break;
       default:
         console.log("QRCode: Error");
         break;
@@ -138,6 +163,16 @@ const extractERC20Inputs = (abiFunction, query) => {
  */
 const parseURLProtocol = URLParsed => {
   switch (URLParsed.protocol) {
+    case "me.uport:":
+      return {
+        array: parseQueryArray(URLParsed.query),
+        object: parseQueryObject(URLParsed.query)
+      };
+    case "did:":
+      return {
+        array: parseQueryArray(URLParsed.query),
+        object: parseQueryObject(URLParsed.query)
+      };
     case "ethereum:":
       return {
         array: parseQueryArray(URLParsed.query),
@@ -150,6 +185,17 @@ const parseURLProtocol = URLParsed => {
       }
     default:
       return null;
+  }
+}
+
+const parseDidType = data => {
+  switch (data) {
+    case "self":
+      
+      break;
+  
+    default:
+      break;
   }
 }
 

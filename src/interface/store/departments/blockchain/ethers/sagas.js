@@ -12,7 +12,21 @@ const Wallet = ethers.Wallet;
 const Contract = ethers.Contract;
 const providers = ethers.providers;
 
+import { REQUEST, SUCCESS, FAILURE } from "interface/store/departments/utils";
 
+import {
+  accountHistory,
+  accountBalance,
+  accountTransactionCount
+} from "./sagasAccounts.js";
+
+import {
+  blockchainBlock,
+  blockchainBlockNumber,
+  blockchainGasPrice,
+  blockchainTransaction,
+  blockchainTransactionReceipt,
+} from "./sagasBlockchain.js";
 // Ethereum Name System (ENS) Sagas
 import {
   ensResolveName,
@@ -37,119 +51,32 @@ import {
   walletGenerateBrain
 } from "./sagasWallet.js";
 
+import {
+  transactionsBatchProcess
+} from "./sagasHelpers.js"
+
 /* ------------------------- Internal Dependencies -------------------------- */
+/**
+ * Wrapper for the ethers.provider.accountHistory Etherscan specific API method
+ * @method providerInfura
+ * @param {Object} payload 
+ * @param {Object} metadata 
+ * 
+ * @todo @kamescg I don't like how the network is passed in the payload...
+ * Everywhere else we pass in via the metadata object.
+ */
 export function * providerInfura ({payload, metadata}) {
   try {
     const { network } = payload
     const infuraProvider = new providers.InfuraProvider(network.chain || 'homestead');
     window.ethereum.providers.infura = infuraProvider
-    yield put(actions.providerInfura("SUCCESS")(
+    yield put(actions.providerInfura(SUCCESS)(
       payload,
       metadata,
     ))
   } catch (err) {
-    if(process.env.REACT_APP_GLOBAL_DEBUG) console.log(err)
-    yield put(actions.providerInfura("FAILURE")(
-      {
-        error: err.message,
-      },
-      metadata,
-    ))
-  }
-}
-
-export function * accountHistory ({payload, metadata}) {
-  try {
-    console.log(payload)
-    const { ethAddress, blockStart, blockEnd } = payload;
-    const provider = new providers.EtherscanProvider('rinkeby');
-    var endBlock = 3038013;
-    const history = yield provider.getHistory(ethAddress, blockStart || 0, endBlock);
-    console.log(history)
-    yield put(actions.accountBalance("SUCCESS")(
-      history,
-      metadata,
-    ))
-  } catch (err) {
-    yield put(actions.accountBalance("FAILURE")(
-      {
-        error: err.message,
-      },
-      metadata,
-    ))
-  }
-}
-
- export function * accountBalance ({payload, metadata}) {
-  try {
-    const { network } = metadata
-    const provider = networkRouting(network)
-    const { address } = payload
-    const balance = yield provider.getBalance(payload)
-    const balanceFormatted = ethers.utils.formatEther(balance);
-    yield put(actions.accountBalance("SUCCESS")(
-      balanceFormatted,
-      metadata,
-    ))
-  } catch (err) {
-    yield put(actions.accountBalance("FAILURE")(
-      {
-        error: err.message,
-      },
-      metadata,
-    ))
-  }
-}
-
- 
-export function * accountTransactionCount ({payload, metadata}) {
-  try {
-    const { network } = metadata;
-    const provider = networkRouting(network);
-    const transactionCount = yield provider.getTransactionCount(payload);
-    yield put(actions.accountTransactionCount("SUCCESS")(
-      transactionCount,
-      metadata,
-    ))
-  } catch (err) {
-    if(process.env.REACT_APP_GLOBAL_DEBUG) console.log(err)
-    yield put(actions.accountTransactionCount("FAILURE")(
-      {
-        error: err.message,
-      },
-      metadata,
-    ))
-  }
-}
-
-
-
-export function * transactionsBatchProcess({payload, metadata}) {
-  try {
-    const { 
-      ethereumAddressList,
-      ethereumGasPrice,
-      ethereumGasLimit,
-      ethereumTokenAmount
-    } = payload
-
-    var overrideOptions = {
-        gasLimit: ethereumGasLimit || 250000,
-        gasPrice: ethereumGasPrice || 9000000000,
-    };
-    const results = []
-    const list = ethereumAddressList.split(",").filter(address=>isAddress(address))
-    for (let i of list) {
-      let result = yield window.ethereum.contracts.tokenContract.transfer(i, Number(ethereumTokenAmount), overrideOptions)
-      results.push(result)
-    }
-  
-    yield put(actions.transactionBatchProcess("SUCCESS")(
-      results,
-      metadata,
-    ))
-  } catch (err) {
-    yield put(actions.transactionBatchProcess("FAILURE")(
+    if (process.env.REACT_APP_GLOBAL_DEBUG) console.log(err)
+    yield put(actions.providerInfura(FAILURE)(
       {
         error: err.message,
       },
@@ -166,21 +93,22 @@ export default function* ethersSaga() {
 
     takeEvery(actions.WALLET_SIGN.REQUEST, walletSign),
     takeEvery(actions.WALLET_SIGNMESSAGE.REQUEST, walletSignMessage),
-    // takeEvery(actions.WALLET_GENERATE_RANDOM.REQUEST, walletGenerateRandom),
-    // takeEvery(actions.WALLET_GENERATE_JSON.REQUEST, walletGenerateJson),
-    // takeEvery(actions.WALLET_GENERATE_MENOMONIC.REQUEST, walletGenerateMenomonic),
-    // takeEvery(actions.WALLET_GENERATE_BRAIN.REQUEST, walletGenerateBrain),
+
+    takeEvery(actions.WALLET_GENERATE_RANDOM.REQUEST, walletGenerateRandom),
+    takeEvery(actions.WALLET_GENERATE_JSON.REQUEST, walletGenerateJson),
+    takeEvery(actions.WALLET_GENERATE_MENOMONIC.REQUEST, walletGenerateMenomonic),
+    takeEvery(actions.WALLET_GENERATE_BRAIN.REQUEST, walletGenerateBrain),
     // takeEvery(actions.WALLET_ADDRESS.REQUEST, walletAddress),
     // takeEvery(actions.WALLET_ENCRYPT.REQUEST, walletEncrypt),
 
-    // takeEvery(actions.BLOCKCHAIN_BLOCK_NUMBER.REQUEST, blockchainBlockNumber),
-    // takeEvery(actions.BLOCKCHAIN_GAS_PRICE.REQUEST, blockchainGasPrice),
-    // takeEvery(actions.BLOCKCHAIN_BLOCK.REQUEST, blockchainBlock),
-    // takeEvery(actions.BLOCKCHAIN_TRANSACTION.REQUEST, blockchainTransaction),
-    // takeEvery(actions.BLOCKCHAIN_TRANSACTION_RECEIPT.REQUEST, blockchainTransactionReceipt),
+    takeEvery(actions.BLOCKCHAIN_BLOCK_NUMBER.REQUEST, blockchainBlockNumber),
+    takeEvery(actions.BLOCKCHAIN_GAS_PRICE.REQUEST, blockchainGasPrice),
+    takeEvery(actions.BLOCKCHAIN_BLOCK.REQUEST, blockchainBlock),
+    takeEvery(actions.BLOCKCHAIN_TRANSACTION.REQUEST, blockchainTransaction),
+    takeEvery(actions.BLOCKCHAIN_TRANSACTION_RECEIPT.REQUEST, blockchainTransactionReceipt),
 
-    // takeEvery(actions.ENS_RESOLVE_NAME.REQUEST, ensResolveName),
-    // takeEvery(actions.ENS_LOOKUPADDRESS.REQUEST, ensLookupAddress),
+    takeEvery(actions.ENS_RESOLVE_NAME.REQUEST, ensResolveName),
+    takeEvery(actions.ENS_LOOKUPADDRESS.REQUEST, ensLookupAddress),
 
     // takeEvery(actions.PROVIDER_ETHERSCAN.REQUEST, providerEtherscan),
     // takeEvery(actions.PROVIDER_JSONRPC.REQUEST, providerJsonRpc),

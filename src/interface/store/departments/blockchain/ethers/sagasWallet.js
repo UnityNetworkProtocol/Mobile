@@ -1,4 +1,5 @@
 /* --- Global Modules --- */
+import LocalAuth from 'react-native-local-auth';
 import idx from 'idx';
 import ethers from 'ethers'
 import { all, put, takeEvery } from 'redux-saga/effects';
@@ -15,7 +16,6 @@ const provider = new providers.InfuraProvider('rinkeby');
 var privateKey = "0xE09B4A3506A843D477F54A63A8786655FB0D00D99287C71F10993F2031DBE5DC";
 var wallet = new Wallet(privateKey);
 wallet.provider = provider;
-
 
 const accountNonce = async wallet => await wallet.getTransactionCount();
 
@@ -60,11 +60,15 @@ export function * walletSign ({payload, metadata}) {
     
     // Get Current Nonce
     const transaction = yield transactionGenerate(payload, metadata, wallet);
+    const auth = yield LocalAuth.authenticate({
+      falbackToPasscode: true,    // fallback to passcode on cancel
+      suppressEnterPassword: false // disallow Enter Password fallback
+    })
     const signedTransaction = yield wallet.sign(transaction);
     const hash = yield provider.sendTransaction(signedTransaction);
     
     yield put(actions.walletSign("SUCCESS")(
-      {},
+      hash,
       metadata,
     ))
   } catch (err) {

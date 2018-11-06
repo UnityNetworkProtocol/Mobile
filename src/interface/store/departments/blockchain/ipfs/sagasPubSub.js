@@ -49,7 +49,6 @@ try {
 
   console.log("PubSub Subscribe")
   const subscription = ipfs.pubsub.subscribe('demo');
-  console.log(subscription);
 
   yield put(actions.pubsubSubscribe("SUCCESS")(
     payload,

@@ -17,6 +17,11 @@ export default (state = initialState, {type, payload, metadata, batch, entity} )
     }
   } else {
     switch (type) {
+      case "TRACER_WALLET_ACTIVE_REQUEST":
+        return {
+          ...state,
+          "activeAccount": payload
+        }
       default:
         return state;
     }

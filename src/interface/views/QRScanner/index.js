@@ -50,7 +50,10 @@ const modalHandlers = withHandlers({
   onRead: props => event => {
     try {
       props.modalHandler(this.QRCodeScanner); // Create the QRScannerObject
-      props.modalUpdate(QRParse(event)); // Extract type/data from QRCode
+      const data = QRParse(event);
+      console.log(data)
+      data.then(r=>props.modalUpdate(r))
+      props.modalUpdate(data); // Extract type/data from QRCode
     } catch (err) {
       debug(err);
       setTimeout(() => {

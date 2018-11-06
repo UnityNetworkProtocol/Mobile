@@ -20,7 +20,7 @@ export default (state = initialState, {type, payload, metadata, batch, entity} )
       case "DEPLOYED_CONTRACT_REQUEST":
         return {
           ...state,
-          [payload.hash]: {
+          [metadata.delta]: {
             data: payload,
             metadata
           }
